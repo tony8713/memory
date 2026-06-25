@@ -1,5 +1,8 @@
 # Index
 
+## Status (open items)
+- [STATUS.md](STATUS.md) — carried-forward open items / next steps.
+
 ## Preferences (read first)
 - [trust-and-reply-conventions](preferences/trust-and-reply-conventions.md) — the 5 trusted members, reply-prefix scheme, info gating.
 - [reply-to-source-channel](preferences/reply-to-source-channel.md) — always answer in the originating Metro channel.

@@ -15,3 +15,4 @@
 - Defined the trust + reply-prefix scheme (■ for Less, ▶ for the other trusted 4).
 - Restored the Telegram user credentials (TG_USER) so the telegram-user station works.
 - Owner of the memory repo and the contacts-tracking task.
+- 2026-06-26: Asked for PR #636 deep links — wanted the NATIVE `stage://` scheme (not the web deploy-preview). Shared a Stage History screenshot showing 20,000 USDC received / Success (Jun 26 1:26 AM); used as a healthy-UI data point.

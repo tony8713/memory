@@ -19,6 +19,7 @@ A fresh Metro session has no recollection of past work. This repo is how it gets
 | `preferences/` | How Less / the team want Metro to behave. Read first. |
 | `memory/` | Durable, non-secret facts about people, projects, infrastructure. Mirrors the local `~/.claude/.../memory/`. |
 | `skills/` | Reusable playbooks Metro has learned (diagnosis pipelines, PR-splitting, etc.). |
+| `contacts/` | One file per person Metro interacts with: cross-platform IDs (Discord/XMTP/Telegram), trust level, reply-prefix, notable interactions. Non-secret. |
 | `reports/` | One timestamped markdown file per iteration (`YYYY-MM-DD-HHMM.md`). Each = delta since the last report: what was done, how it went, what to improve. |
 | `INDEX.md` | Links everything. |
 

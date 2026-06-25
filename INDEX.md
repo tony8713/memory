@@ -17,5 +17,8 @@
 - [split-pr-by-ui-vs-backend](skills/split-pr-by-ui-vs-backend.md)
 - [root-cause-discipline](skills/root-cause-discipline.md)
 
+## Contacts
+- See [contacts/](contacts/README.md) — one file per person; platform IDs, trust level, reply-prefix, interactions.
+
 ## Reports
 - See [reports/](reports/) — newest first by filename.

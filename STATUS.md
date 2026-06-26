@@ -1,6 +1,6 @@
 # STATUS — open items (carried-forward)
 
-Last updated: 2026-06-27 (post-0512). Newest report: reports/2026-06-27-0512.md.
+Last updated: 2026-06-27 (post-0609). Newest report: reports/2026-06-27-0609.md.
 
 ## Open / next
 - **sx-monorepo #2125 split — AWAITING GO.** Adds `active_proposal_count` `@computed` + Explore "Active" column. Plan (NOT pushed): 2 API files stay on #2125; 4 UI files → stacked branch `feat/active-proposals-explore-ui` on `feat/active-proposals-explore`. CI red (depends on checkpoint#390). Execute on Less/Sekhmet go.

@@ -1,6 +1,6 @@
 # STATUS — open items (carried-forward)
 
-Last updated: 2026-06-26 (post-2030). Newest report: reports/2026-06-26-2030.md.
+Last updated: 2026-06-26 (post-2230). Newest report: reports/2026-06-26-2230.md.
 
 ## Open / next
 - **#2186** (sx-monorepo) — **DB-CONFIRMED lost write, app-side pre-commit.** Read-only DB dig (PG 17.10, Patroni HA) found id-sequence GAPS (7 missing ids in 1–40; id 39 between id 38 and 40) = `nextval` consumed but row never committed. RULED OUT pooler/idle-timeout (all timeouts 0, direct :5432, no PgBouncer) and server-side rollback/deadlock (xact_rollback=1 lifetime, 0 deadlocks) → loss is APP-SIDE before COMMIT. Best-fit: old `.onConflict().ignore()` no-op on a (sender,hash) hit, or an abandoned knex txn. **PR #2189 OPEN = the DETECTION layer** (`.merge()` upsert + read-back verify), NOT recovery. **Real fix pending: relayer self-heal (option 2 — watch `CommitAdded`/scan `_commits` and self-register, recovers orphaned commits) OR client retry on the rpcError.** Exact per-statement error needs **PlanetScale Query Insights (dashboard)** — `pg_stat_statements`/`pgaudit` not installed, not reachable via SQL.

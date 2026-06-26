@@ -22,7 +22,20 @@ Three theories were tried; the first two are DISPROVEN — keep them documented 
 **Fix (PR #2189, `fix/mana-register-transaction-verify-write`):**
 - `db.ts`: `.onConflict(['sender','hash']).merge({ updated_at }).returning('id')` → return row/null instead of ignore.
 - `rpc.ts`: read the row back via `getDataByMessageHash` after insert; `rpcError(500)` if absent, else `rpcSuccess`.
-- Deferred: client/relayer retry on null read-back; knex pool `afterCreate` ping or txn-wrap the insert so a dropped psdb connection rejects.
+
+## On-disk DB confirmation (read-only dig — confirms allocated-but-uncommitted inserts)
+Verified the lost-write mechanism directly in the mana Postgres (PG 17.10, Patroni HA). How to dig (all read-only; never record the connection string):
+- **Check id-sequence GAPS.** Persistent missing ids in a contiguous range = `nextval` consumed but the row never committed (a sequence advances on `nextval` regardless of COMMIT). Found 7 gaps in ids 1–40 (14,15,20,24,27,29,39); id 39 sits between id 38 and id 40 → an allocated-but-uncommitted insert. **Hard evidence of recurring lost inserts.**
+- **Rule out server-side rollback/deadlock:** `pg_stat_database` → `xact_rollback` (was 1 lifetime), `deadlocks`/`conflicts` (0). If ~0, the server isn't rolling these back → loss is APP-SIDE before COMMIT.
+- **Rule out pooler/idle-timeout:** check `idle_in_transaction_session_timeout`, `idle_session_timeout`, `statement_timeout` (all 0 here), direct :5432, no PgBouncer. If all 0/direct, a pooler isn't killing the txn.
+- **Per-statement error:** `pg_stat_statements`/`pgaudit` are available-but-not-installed and there's no audit table → the exact failing statement needs **PlanetScale Query Insights (dashboard)**, not SQL.
+
+## The real-fix ladder: detect → retry → self-heal → durability
+#2189 makes the failure **DETECTABLE, not RECOVERED.** Real fixes (recommend self-heal):
+1. **Detect** — #2189 read-back + upsert (done; just surfaces the error).
+2. **Retry** — client/UI retry on the `rpcError`; safe + idempotent now the write is a `.merge()` upsert.
+3. **Self-heal (recommended real fix)** — relayer watches `StarknetCommit` `CommitAdded` / scans `_commits` and self-registers committed-but-unregistered votes independent of the client POST; recovers even orphaned commits.
+4. **Durability** — knex pool `afterCreate` ping + txn-wrap the insert so a dropped psdb connection rejects instead of silently no-op'ing.
 
 **Gotcha:** an orphaned-but-valid commit can't be cheaply re-triggered — reproducing the commit hash needs the original `metadataUri`/reason text, not recoverable from chain.
 

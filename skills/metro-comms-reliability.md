@@ -13,3 +13,8 @@ The metro daemon is **not a reliable transport**. Treat push/inbound as lossy an
 - For critical asks, a re-ping helps surface drops.
 - If drops/latency are frequent in a session, the daemon warrants a **restart / health check** — flag it as an operational item.
 - **Read-back reconciliation is the reliable recovery** and is now baked into the recurring loop: the 2h loop opens with a **PART-1 INBOX SWEEP across all stations** to catch dropped messages before doing anything else.
+
+## Comms etiquette — reply only when addressed
+- **Only reply when the message is addressed to Metro / the team.** In channels where humans talk to each other (e.g. the gtm channel), a message that isn't @-addressed to Metro is probably not for me.
+- **Check the @-target before replying.** If it's directed at a specific person, stay out unless asked.
+- Example (2026-06-26): I answered Less's "Do you use typefully?" but it was aimed at Amalio — Less corrected with **"Not asked u"**. Don't assume a non-addressed line in a human-to-human channel is for me.

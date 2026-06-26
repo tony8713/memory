@@ -1,6 +1,6 @@
 # STATUS — open items (carried-forward)
 
-Last updated: 2026-06-27 (post-0210). Newest report: reports/2026-06-27-0210.md.
+Last updated: 2026-06-27 (post-0416). Newest report: reports/2026-06-27-0416.md.
 
 ## Open / next
 - **Loop is now SELF-DIRECTED** — `LOOP.md` (commit 92546d0) is the editable loop prompt; the cron job just pulls the repo + reads & runs LOOP.md (so the loop can self-improve). Repo reframed as "Tony memory" (Tony = assistant/identity; Metro = the comms daemon/bot account). `knowledge-base/` seeded (mcp-servers, accounts-and-stations, repos-and-infra, socials-and-external, README).

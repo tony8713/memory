@@ -10,7 +10,7 @@ Last updated: 2026-06-26 (post-1845). Newest report: reports/2026-06-26-1845.md.
 - **#2185** — UI split off #2181; merge after the #2181 backend lands.
 - **Orphaned EthTx commits** — valid/permanent on L1 but never indexed on L2; no cheap re-trigger path (needs original metadataUri/reason, not recoverable from chain).
 - **#636** (bonustrack/stage, ChatKit) — CI gate red (build passes; lint/typecheck/knip/madge/test fail). Testable via Expo preview + `stage://` deep links; not merge-ready.
-- **Sekhmet → Wiktor** identity mapping — CONFIRMED 2026-06-26 (Sekhmet/`0cf5e` = Wiktor; contacts merged into `contacts/wiktor.md`, `contacts/sekhmet.md` removed). Amalio still unmapped.
+- **Trusted-5 identity mapping — COMPLETE 2026-06-26.** All 5 trusted Snapshot Labs members are now mapped: Less = `bonustrack_` (■); Wan = `wa0x6e` (▶); Chaitu = `chaituvr` (▶); Wiktor = Sekhmet/`0cf5e` (▶, contacts merged into `contacts/wiktor.md`, `contacts/sekhmet.md` removed); Amalio = `amaliohidalgo`/1285995520174592085 (▶, confirmed via Less @-mention in the gtm channel).
 
 ## Healthy / resolved recently
 - All 3 stations live (telegram-user restored after the Jun 25 cutover regression).

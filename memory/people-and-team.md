@@ -8,7 +8,7 @@ Less, Wiktor, Chaitu, Wan, Amalio. See `preferences/trust-and-reply-conventions.
 - **Chaitu** = `chaituvr` (id 497104796919267329).
 - **Wan** = `wa0x6e` (id 293785374063460355).
 - **Wiktor** = Sekhmet / `0cf5e` (global_name "Sekhmet", id 183666514920996864) — confirmed by Less 2026-06-26.
-- **Amalio** = not yet mapped to a Discord handle.
+- **Amalio** = `amaliohidalgo` (global_name "Amalio Hidalgo", id 1285995520174592085) — confirmed 2026-06-26 (Less @-mentioned him in the gtm channel).
 - **tonyshot26** ("Yooo") = the human **Tony**, distinct from Metro the bot.
 
 ## Reach channels

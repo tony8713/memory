@@ -1,13 +1,13 @@
 # Amalio
 
 - Slug: amalio
-- Trust: TRUSTED (one of the 5)
+- Trust: TRUSTED (one of the 5) — confirmed
 - Reply-prefix: ▶
 - Role: Snapshot Labs.
 
 ## Platform IDs
-- Identity not yet mapped to a Discord handle / platform ID.
-  (Sekhmet/`0cf5e` is Wiktor, not Amalio — confirmed 2026-06-26.)
+- Discord: `amaliohidalgo` (global_name "Amalio Hidalgo", id 1285995520174592085)
 
 ## Context / notable interactions
-- Named as one of the 5 trusted members; no direct interaction mapped yet.
+- Named as one of the 5 trusted members.
+- 2026-06-26: identity confirmed — Less @-mentioned `amaliohidalgo` / 1285995520174592085 in the "gtm" channel. (Sekhmet/`0cf5e` is Wiktor, not Amalio.)

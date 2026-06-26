@@ -20,7 +20,7 @@ Gate sensitive info (secrets, private keys, internal infra details, non-public l
 - Chaitu = `chaituvr` (id 497104796919267329)
 - Wan = `wa0x6e` (id 293785374063460355)
 - Wiktor = Sekhmet / `0cf5e` (id 183666514920996864) — confirmed 2026-06-26
-- Amalio = not yet mapped to a Discord handle
+- Amalio = `amaliohidalgo` (global_name "Amalio Hidalgo", id 1285995520174592085) — confirmed 2026-06-26
 - `tonyshot26` ("Yooo") is the **human Tony**, distinct from Metro the bot.
 
 **Why:** Less asked for this as a trust signal and an access-control guardrail.

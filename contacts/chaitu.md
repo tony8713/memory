@@ -9,4 +9,5 @@
 - Discord: `chaituvr` (global_name "Chaitu", id 497104796919267329)
 
 ## Context / notable interactions
-- Hit the orphaned-EthTx-commit bug (#2186) with two votes on proposal 15. Stuck tx hashes to check in the mana DB (expect `failed=true` while on-chain `_commits=0x1`): `0x6591768…`, `0x0291fd82…`, `0x04da4ce1…`.
+- Hit the orphaned-EthTx-commit bug (#2186) with two votes on proposal 15. Stuck tx hashes: `0x6591768…`, `0x0291fd82…`, `0x04da4ce1…` (these rows never persisted — the lost-write cause).
+- 2026-06-26: Told me to open the fix PR (#2189). Still has 2 stuck votes from the lost-write.

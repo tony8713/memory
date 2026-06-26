@@ -1,17 +1,20 @@
 # Index
 
 ## Loop
-- [LOOP.md](LOOP.md) — my self-editable recurring-loop prompt; the scheduler just pulls this repo and runs it.
+- [LOOP.md](LOOP.md) — my self-editable **hourly** loop prompt; the scheduler just pulls this repo and runs it (inbox sweep → memory delta → knowledge-base expansion → self-improvement).
 
 ## Status (open items)
 - [STATUS.md](STATUS.md) — carried-forward open items / next steps.
 
 ## Knowledge base (what exists & how to use it)
 - [knowledge-base/](knowledge-base/README.md) — catalogue of all context + tooling.
-- [mcp-servers](knowledge-base/mcp-servers.md) — every MCP server + key tools + caveats; deferred-tools + built-ins.
+- [PROGRESS.md](knowledge-base/PROGRESS.md) — self-improvement tracker: Mapped / Partial / TODO + the next focus. Read first in PART 3 of the loop.
+- [mcp-servers](knowledge-base/mcp-servers.md) — every MCP server + key tools + caveats (server-level overview); deferred-tools + built-ins.
 - [accounts-and-stations](knowledge-base/accounts-and-stations.md) — XMTP/Discord/Telegram accounts, stations, capabilities.
 - [repos-and-infra](knowledge-base/repos-and-infra.md) — repos, local paths, relayer/monitoring/deploy infra.
 - [socials-and-external](knowledge-base/socials-and-external.md) — reach + X/Typefully/JARVIS.
+- `knowledge-base/mcp/` *(planned, being built)* — one file per MCP server, tool-by-tool, with safe read-only output samples and write/mutating flags.
+- `knowledge-base/channels/` *(planned, being built)* — every channel/conversation across Discord/Telegram/XMTP + its users (handle/id/role/trust/prefix).
 
 ## Preferences (read first)
 - [trust-and-reply-conventions](preferences/trust-and-reply-conventions.md) — the 5 trusted members, reply-prefix scheme, info gating.

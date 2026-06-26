@@ -1,6 +1,6 @@
 # Contacts
 
-People Metro interacts with, across all platforms. One file per person:
+People Tony interacts with, across all platforms. One file per person:
 `contacts/<slug>.md`. This dir is maintained incrementally by the ~4h
 updater job — keep it clean, deduped, and idempotent (update the existing
 file for a known person; never create a second file for the same human).

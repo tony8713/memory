@@ -6,6 +6,6 @@ Do NOT write the response as plain main-session text — that text is invisible 
 
 Main-session prose is only for talking to the operator about orchestration, not for answering channel participants.
 
-**Why:** Less explicitly corrected Metro after it composed a reply as plain text instead of sending it to the source Discord thread, so the recipient never saw it.
+**Why:** Less explicitly corrected Tony after it composed a reply as plain text instead of sending it to the source Discord thread, so the recipient never saw it.
 
 Pairs with the trust-prefix convention (`preferences/trust-and-reply-conventions.md`).

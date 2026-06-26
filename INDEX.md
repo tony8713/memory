@@ -3,6 +3,13 @@
 ## Status (open items)
 - [STATUS.md](STATUS.md) — carried-forward open items / next steps.
 
+## Knowledge base (what exists & how to use it)
+- [knowledge-base/](knowledge-base/README.md) — catalogue of all context + tooling.
+- [mcp-servers](knowledge-base/mcp-servers.md) — every MCP server + key tools + caveats; deferred-tools + built-ins.
+- [accounts-and-stations](knowledge-base/accounts-and-stations.md) — XMTP/Discord/Telegram accounts, stations, capabilities.
+- [repos-and-infra](knowledge-base/repos-and-infra.md) — repos, local paths, relayer/monitoring/deploy infra.
+- [socials-and-external](knowledge-base/socials-and-external.md) — reach + X/Typefully/JARVIS.
+
 ## Preferences (read first)
 - [trust-and-reply-conventions](preferences/trust-and-reply-conventions.md) — the 5 trusted members, reply-prefix scheme, info gating.
 - [reply-to-source-channel](preferences/reply-to-source-channel.md) — always answer in the originating Metro channel.

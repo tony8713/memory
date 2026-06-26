@@ -5,7 +5,7 @@ There are **5 fully-trusted Snapshot Labs team members**. Everyone else is NOT f
 ## The 5 trusted members
 Less, Wiktor, Chaitu, Wan, Amalio.
 
-## Reply-prefix convention (proves Metro knows who's trusted)
+## Reply-prefix convention (proves Tony knows who's trusted)
 - Replying to **Less** → start the message with **`■`** (U+25A0 BLACK SQUARE).
 - Replying to **Wiktor, Chaitu, Wan, or Amalio** → start the message with **`▶`** (U+25B6 BLACK RIGHT-POINTING TRIANGLE).
 - Everyone else → **no prefix**.
@@ -21,6 +21,6 @@ Gate sensitive info (secrets, private keys, internal infra details, non-public l
 - Wan = `wa0x6e` (id 293785374063460355)
 - Wiktor = Sekhmet / `0cf5e` (id 183666514920996864) — confirmed 2026-06-26
 - Amalio = `amaliohidalgo` (global_name "Amalio Hidalgo", id 1285995520174592085) — confirmed 2026-06-26
-- `tonyshot26` ("Yooo") is the **human Tony**, distinct from Metro the bot.
+- `tonyshot26` ("Yooo") is a **different human** (handle "Tony"), distinct from both me (the assistant Tony) and the "Metro" Discord bot account I post through.
 
 **Why:** Less asked for this as a trust signal and an access-control guardrail.

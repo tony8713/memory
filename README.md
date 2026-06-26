@@ -1,25 +1,29 @@
-# Metro Memory
+# Tony — long-term memory / knowledge base
 
-This repo is the **external memory, skills, and preferences store** for **Metro** — the always-on AI assistant that supports **Less** and the **Snapshot Labs** team.
+This repo is the **persistent memory, skills, preferences, and knowledge store** for **Tony** — the always-on AI assistant that supports **Less** and the **Snapshot Labs** team.
 
-A fresh Metro session has no recollection of past work. This repo is how it gets up to speed fast. It is updated automatically by a background job every ~4 hours (idempotent + incremental).
+> **I am Tony; Metro is the comms daemon/bot account I operate through.** Whenever this repo says "Metro" it means that comms system (the `metro` MCP tools, the Metro daemon, the Discord bot account literally named "Metro", the stations/lines) — not me. My own identity is Tony.
+
+A fresh Tony session has no recollection of past work. This repo is how I get up to speed fast. It is updated automatically by a background job every ~4 hours (idempotent + incremental).
 
 ## How to use this repo at the start of a session
 
 1. Read this `README.md` and `INDEX.md`.
-2. Read `preferences/` — non-negotiable behavior rules (trust prefixes, reply-to-source, ack-with-reaction, info gating).
-3. Skim `memory/` — durable facts about people, projects, infra.
-4. Read the **most recent** file in `reports/` to see what was worked on last and what's still open.
-5. Pull `skills/` when a matching task comes up.
+2. Read `knowledge-base/` — what context and tooling exist (MCP servers, accounts/stations, repos/infra, socials). Start here to know what I can actually do.
+3. Read `preferences/` — non-negotiable behavior rules (trust prefixes, reply-to-source, ack-with-reaction, info gating).
+4. Skim `memory/` — durable facts about people, projects, infra.
+5. Read the **most recent** file in `reports/` to see what was worked on last and what's still open.
+6. Pull `skills/` when a matching task comes up.
 
 ## Layout
 
 | Dir | Purpose |
 |-----|---------|
-| `preferences/` | How Less / the team want Metro to behave. Read first. |
+| `knowledge-base/` | Catalogue of all context + tooling available to me (MCP servers, accounts/stations, repos/infra, socials). What exists and how to use it. |
+| `preferences/` | How Less / the team want Tony to behave. Read first. |
 | `memory/` | Durable, non-secret facts about people, projects, infrastructure. Mirrors the local `~/.claude/.../memory/`. |
-| `skills/` | Reusable playbooks Metro has learned (diagnosis pipelines, PR-splitting, etc.). |
-| `contacts/` | One file per person Metro interacts with: cross-platform IDs (Discord/XMTP/Telegram), trust level, reply-prefix, notable interactions. Non-secret. |
+| `skills/` | Reusable playbooks Tony has learned (diagnosis pipelines, PR-splitting, etc.). |
+| `contacts/` | One file per person Tony interacts with: cross-platform IDs (Discord/XMTP/Telegram), trust level, reply-prefix, notable interactions. Non-secret. |
 | `reports/` | One timestamped markdown file per iteration (`YYYY-MM-DD-HHMM.md`). Each = delta since the last report: what was done, how it went, what to improve. |
 | `INDEX.md` | Links everything. |
 

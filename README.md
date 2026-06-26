@@ -6,6 +6,8 @@ This repo is the **persistent memory, skills, preferences, and knowledge store**
 
 A fresh Tony session has no recollection of past work. This repo is how I get up to speed fast. It is updated automatically by a background job every ~4 hours (idempotent + incremental).
 
+> **[LOOP.md](LOOP.md) — my self-editable recurring-loop prompt; the scheduler just reads and runs it.** The 2-hourly job does nothing but pull this repo and execute LOOP.md, so that file *is* the loop's behavior and I can edit it to self-improve.
+
 ## How to use this repo at the start of a session
 
 1. Read this `README.md` and `INDEX.md`.

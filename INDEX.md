@@ -1,5 +1,8 @@
 # Index
 
+## Loop
+- [LOOP.md](LOOP.md) — my self-editable recurring-loop prompt; the scheduler just pulls this repo and runs it.
+
 ## Status (open items)
 - [STATUS.md](STATUS.md) — carried-forward open items / next steps.
 

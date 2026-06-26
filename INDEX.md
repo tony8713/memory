@@ -19,6 +19,7 @@
 - [diagnose-sx-vote-pipeline](skills/diagnose-sx-vote-pipeline.md)
 - [split-pr-by-ui-vs-backend](skills/split-pr-by-ui-vs-backend.md)
 - [root-cause-discipline](skills/root-cause-discipline.md)
+- [push-safe-signed-snapshot-vote](skills/push-safe-signed-snapshot-vote.md) — relay a Safe (EIP-1271) signed Snapshot vote to the sequencer.
 
 ## Contacts
 - See [contacts/](contacts/README.md) — one file per person; platform IDs, trust level, reply-prefix, interactions.

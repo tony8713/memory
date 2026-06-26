@@ -1,6 +1,6 @@
 # STATUS — open items (carried-forward)
 
-Last updated: 2026-06-26 14:30. Newest report: reports/2026-06-26-1430.md.
+Last updated: 2026-06-26 18:30. Newest report: reports/2026-06-26-1830.md.
 
 ## Open / next
 - **#2186** (sx-monorepo) — mana self-register decision pending: register from `CommitAdded`/`_commits` on-chain, vs UI persist+retry. No fix chosen yet.
@@ -13,3 +13,4 @@ Last updated: 2026-06-26 14:30. Newest report: reports/2026-06-26-1430.md.
 ## Healthy / resolved recently
 - All 3 stations live (telegram-user restored after the Jun 25 cutover regression).
 - Stage transactions UI rendering cleanly (Less's 20k USDC History screenshot).
+- Safe-signed Snapshot vote (gnosis.eth GIP-151, Safe 0xCa1c…BFFb) pushed to the hub and verified live; fully done, nothing carried forward.

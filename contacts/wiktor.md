@@ -18,3 +18,5 @@ This is the canonical real-name file; `contacts/sekhmet.md` was removed.
 - Working on: testnet-api migration, Cloudflare DNS cutover.
 - Checkpoint rate-limit PR #394.
 - nickai Portfolio tab PR.
+- **Author of checkpoint#390** (`@computed` directive); also reviewed it.
+- **k8s migration (2026-06-27):** API synced arb1 in 24.5h on k8s, no manual indexes, $48 server. Base did NOT sync (edge RPC block-range limits; fixed in new Checkpoint). Plan: release new Checkpoint + drop old droplets → fully k8s-hosted SX API.

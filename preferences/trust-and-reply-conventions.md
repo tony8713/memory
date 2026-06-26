@@ -19,7 +19,8 @@ Gate sensitive info (secrets, private keys, internal infra details, non-public l
 - Less = `bonustrack_` (global_name "less", id 238307675501232128)
 - Chaitu = `chaituvr` (id 497104796919267329)
 - Wan = `wa0x6e` (id 293785374063460355)
-- Wiktor, Amalio = not yet mapped to Discord handles (Sekhmet/`0cf5e` id 183666514920996864 is one of them — confirm before assuming)
+- Wiktor = Sekhmet / `0cf5e` (id 183666514920996864) — confirmed 2026-06-26
+- Amalio = not yet mapped to a Discord handle
 - `tonyshot26` ("Yooo") is the **human Tony**, distinct from Metro the bot.
 
 **Why:** Less asked for this as a trust signal and an access-control guardrail.

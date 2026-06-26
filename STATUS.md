@@ -9,7 +9,7 @@ Last updated: 2026-06-26 (post-1830). Newest report: reports/2026-06-26-1230.md 
 - **#2185** — UI split off #2181; merge after the #2181 backend lands.
 - **Orphaned EthTx commits** — valid/permanent on L1 but never indexed on L2; no cheap re-trigger path (needs original metadataUri/reason, not recoverable from chain).
 - **#636** (bonustrack/stage, ChatKit) — CI gate red (build passes; lint/typecheck/knip/madge/test fail). Testable via Expo preview + `stage://` deep links; not merge-ready.
-- **Sekhmet → Wiktor / Amalio** identity mapping — trusted-pending-confirmation; not confirmed this session.
+- **Sekhmet → Wiktor** identity mapping — CONFIRMED 2026-06-26 (Sekhmet/`0cf5e` = Wiktor; contacts merged into `contacts/wiktor.md`, `contacts/sekhmet.md` removed). Amalio still unmapped.
 
 ## Healthy / resolved recently
 - All 3 stations live (telegram-user restored after the Jun 25 cutover regression).

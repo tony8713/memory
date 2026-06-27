@@ -10,9 +10,9 @@ Discord guild: **955773041898573854** (Snapshot Labs).
 
 | Channel / line id | Name / purpose | Known participants | Notes |
 |---|---|---|---|
-| thread `1517956186929102869` | "Bug: enable to vote with Ledger on SX Starknet" (SX Ledger bug thread) | Less (■), Wan (▶), Chaitu (▶), Sekhmet/Wiktor (▶) | Home of the Ledger-vote work; PRs #2183 / #2189. |
-| `1030772407226601522` | **#api** | Sekhmet/Wiktor (▶) active | k8s migration + Checkpoint updates posted here. |
-| `1478881436168880218` | interns | (unverified) | |
+| thread `1517956186929102869` | "Bug: enable to vote with Ledger on SX Starknet" (SX Ledger bug thread) | Wan (▶, `wa0x6e` 293785374063460355) very active; Metro responding | **Verified 2026-06-27** (metro read). Home of the Ledger-vote work; PRs #2183 / #2189. Wan @-mentions role `1477618545998172281`. |
+| `1030772407226601522` | **#api** | Less (■, `bonustrack_`/less 238307675501232128), Sekhmet/Wiktor (▶, `0cf5e`/Sekhmet 183666514920996864) | **Verified 2026-06-27** (metro read). k8s migration + Checkpoint #390/#394 + #2125 split discussed here. |
+| `1478881436168880218` | interns | Less (■ 238307675501232128), Sekhmet (▶ 183666514920996864), Chaitu (▶ `chaituvr` 497104796919267329), Wan (▶ 293785374063460355), `tonyshot26`/"Yooo" (1477276312430313503) | **Verified 2026-06-27** (metro read). Team banter + indexer/hub-restart pings; has sub-threads. `tonyshot26` = separate Tony Discord acct (no prefix). |
 | `1448596560010150009` | gtm | Amalio (▶), Less (■) | Amalio confirmed via Less @-mention here. Content/Typefully flow. |
 | `1504226489359401221` | Less test / DM channel | Less (■) | Connectivity-test count-ping sweeps land here. |
 | `1125390177888645231` | (purpose unverified) | (unverified) | |
@@ -42,4 +42,4 @@ Discord guild: **955773041898573854** (Snapshot Labs).
 | Amalio | trusted-5, ▶ | `amaliohidalgo` (1285995520174592085) | contacts/amalio.md |
 
 ## Status
-- **Partial / started.** Channel purposes + participant rosters for several Discord lines are unverified. Next deepening: confirm via metro `group_info` / `read` per line and `list_accounts`, then split high-traffic channels into per-channel files if useful.
+- **Partial.** Three key Discord lines (SX Ledger thread `1517956186929102869`, #api `1030772407226601522`, interns `1478881436168880218`) **verified 2026-06-27** via metro `read` (handles/ids confirmed). Still unverified: `1125390177888645231`, `1508453453930692669` (purpose+roster). Next: confirm those two, then split high-traffic channels into per-channel files if useful.

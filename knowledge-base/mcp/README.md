@@ -14,10 +14,13 @@ For the server-level overview (all connected servers at a glance) see `../mcp-se
 | `sentry.md` | claude.ai Sentry | **Done** | `find_organizations` (snapshot-labs), `find_projects` (16; NO mana) |
 | `tenderly.md` | claude.ai Tenderly | **Done** | `list_projects` (1: default), `get_networks` (~100 chains) |
 | `google-workspace.md` | Gmail/Calendar/Drive | **Stub** | schema-only (no user data read this tick — privacy) |
+| `notion.md` | claude.ai Notion | **Done** | `notion-get-teams` (General live; topical spaces archived), `notion-get-users` (6 people incl. Fabien + bots), `notion-search` |
+| `intercom.md` | claude.ai Intercom | **Done** | `list_articles` (59 articles, workspace `n9dmxtcs`, help.snapshot.box) |
+| `netlify.md` | claude.ai Netlify | **Done** | `get-user` (Tony), `get-teams` (tony8713/stagelabs/snapshotlabs), `get-projects` (SX 11 sites + Stage 2 sites) |
+| `fireflies.md` | claude.ai Fireflies | **Done** | `fireflies_get_user` (Tony, admin, 0 min) — schema-only otherwise (PII) |
 
 ## TODO (next batches)
-- Notion — `notion-get-users` / `notion-search` (read-only)
 - Google Workspace read-onlys — `list_labels` / `list_calendars` / `list_recent_files` (structure only, when warranted)
 - Snapshot_MySQL — `mysql_list_tables` (read-only)
-- Intercom, Netlify, Fireflies — read-only listings
 - Then: Cloudflare, Slash, Browserbase, Docusign, Calendly
+- Built-in/deferred tool catalog (non-MCP harness tools) + a structure/refactor pass

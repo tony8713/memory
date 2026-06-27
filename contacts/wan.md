@@ -8,6 +8,10 @@
 ## Platform IDs
 - Discord: `wa0x6e` (id 293785374063460355)
 
+## Key channels (see `knowledge-base/channels/README.md`)
+- **SX Ledger bug thread** `1517956186929102869` — very active; home of the Ledger-vote work (#2183/#2186/#2189). Has a dedicated 15-min read-back poll at his request.
+- interns `1478881436168880218`.
+
 ## Context / notable interactions
 - Drove the SX Starknet Ledger vote debugging (#2183, #2186).
 - Caught the corrected #2186 root cause: pointed out the vote modal showed SUCCESS in every missing-vote case, which disproved the "lost POST" theory and pointed at the mana 24h sweep.

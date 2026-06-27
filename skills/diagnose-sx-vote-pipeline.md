@@ -23,13 +23,17 @@ Three theories were tried; the first two are DISPROVEN — keep them documented 
 - `db.ts`: `.onConflict(['sender','hash']).merge({ updated_at }).returning('id')` → return row/null instead of ignore.
 - `rpc.ts`: read the row back via `getDataByMessageHash` after insert; `rpcError(500)` if absent, else `rpcSuccess`.
 
-### #2189 refinement (2026-06-27, review thread w/ Wan) — a try/catch CANNOT catch this; #2189 may be parked
-From the review: **master already has a handler-level try/catch** — any THROWN error in the register path is already caught + 500'd. So a try/catch added in #2189 is **redundant** (catches nothing new). The lost write is a **SILENT 0-row no-op, not a throw**: `.onConflict(['sender','hash']).ignore()` returns 0 rows and does NOT throw on a conflict / non-durable psdb write. **No try/catch (handler-level or added) can catch a no-throw.** Only three things surface it:
+### #2189 CLOSED (2026-06-27, Wan's call) — a try/catch CANNOT catch this; logs are exhausted
+From the review: **master already has a handler-level try/catch** — any THROWN error in the register path is already caught + 500'd. So a try/catch added in #2189 is **redundant** (catches nothing new). The lost write is a **SILENT 0-row no-op, not a throw**: `.onConflict(['sender','hash']).ignore()` returns 0 rows and does NOT throw on a conflict / non-durable psdb write. **No try/catch (handler-level or added) can catch a no-throw.** Also: the existing **"Registering transaction" log already carries sender + hash**, so it gives the diagnostic anchor — no new logging is needed. Wan therefore **CLOSED #2189** (branch `fix/mana-register-transaction-verify-write` kept for reference).
+
+Only three things can surface the silent no-op (none is a code-log change):
 1. **PlanetScale Query Insights** (dashboard) — the real per-statement behavior / WHY (source of truth; `pg_stat_statements`/`pgaudit` not installed → not reachable via SQL).
 2. **rowCount / `.returning('id')` inspection** — act on 0 affected rows after the insert.
 3. **Drop `.ignore()`** (→ `.merge()`) so a real conflict/error can surface.
 
-Conclusion: #2189 as-written (redundant try/catch + still-silent no-op) **may not be worth merging.** Options put to Wan — (a) park it + use Query Insights on next occurrence; (b) debug branch that lets errors surface (drop `.ignore()` / inspect rowCount). AWAITING Wan.
+**Logs exhausted → Query Insights is the source of truth.** A conclusive 2026-06-27 dig of the two missing-vote timestamps (15:11:13Z & 19:48:55Z) in Better Stack `mana` (`mana_pino`) found **NOTHING anomalous**: register logged, **pid 19 throughout** (no restart), **no "Failed to register transaction"**, no connection/pool/timeout events, processing loop uninterrupted — **yet no row.** Only unrelated errors in the window (3095× "Failed to process proposal" starknet RpcError/herodotus from 19:58; some "timestamp in the future"; "Failed to get data by message hash" reads). The app layer is clean → the loss is at the **DB-gateway (psdb) layer**, invisible to app logs → **PlanetScale Query Insights for those two timestamps is the only remaining source.**
+
+**Duplicate-ignore vs genuine loss (key distinction):** a `(sender, hash)` for which **no row exists** CANNOT be a `.onConflict().ignore()` duplicate-drop — a duplicate-ignore presupposes the row already exists. So "no row + register logged" is **genuine loss**, not the upsert dropping a real duplicate. Don't conflate the two when triaging.
 
 ## On-disk DB confirmation (read-only dig — confirms allocated-but-uncommitted inserts)
 Verified the lost-write mechanism directly in the mana Postgres (PG 17.10, Patroni HA). How to dig (all read-only; never record the connection string):

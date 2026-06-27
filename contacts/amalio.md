@@ -8,6 +8,9 @@
 ## Platform IDs
 - Discord: `amaliohidalgo` (global_name "Amalio Hidalgo", id 1285995520174592085)
 
+## Key channels (see `knowledge-base/channels/README.md`)
+- Discord **gtm** `1448596560010150009` (content/Typefully flow; identity confirmed here via Less @-mention).
+
 ## Context / notable interactions
 - Named as one of the 5 trusted members.
 - 2026-06-26: identity confirmed — Less @-mentioned `amaliohidalgo` / 1285995520174592085 in the "gtm" channel. (Sekhmet/`0cf5e` is Wiktor, not Amalio.)

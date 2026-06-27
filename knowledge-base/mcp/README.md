@@ -23,6 +23,7 @@ For the server-level overview (all connected servers at a glance) see `../mcp-se
 
 Also: `../built-in-tools.md` — non-MCP harness tool + Skill catalog (Agent/Bash/Read/Write/Edit/ToolSearch/Skill/Monitor/WebSearch/WebFetch + Skill list). **Done.**
 
-## TODO (next batches)
-- Google Workspace read-onlys — `list_labels` / `list_calendars` / `list_recent_files` (structure only) — only MCP left beyond the stub.
-- **Per-MCP map effectively complete.** Next: a **structure/refactor pass** — ensure `INDEX.md` covers channels/ + mcp/ + built-in-tools.md, cross-link contacts/ ↔ channels/, prune stale notes; then ongoing maintenance/verification.
+## Status: COMPLETE (ongoing maintenance)
+Per-MCP map done; structure/refactor pass done (2026-06-27) — `INDEX.md` links mcp/ + channels/ + built-in-tools.md, contacts/ ↔ channels/ cross-linked, `../mcp-servers.md` demoted to a pointer.
+
+Only remaining optional item: Google Workspace de-stub — `list_labels` / `list_calendars` / `list_recent_files` (structure only) to lift `google-workspace.md` off stub. Otherwise re-verify drifted facts rather than net-new mapping.

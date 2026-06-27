@@ -10,7 +10,10 @@ After the top-level `README.md` + `INDEX.md`, skim this folder to know what I ca
 ## Files
 | File | What's in it |
 |------|--------------|
-| `mcp-servers.md` | Every connected MCP server, its key tools, what it's good for, auth/availability caveats. Plus the deferred-tools mechanism and built-in tools. |
+| `mcp-servers.md` | Thin **index/pointer** into `mcp/` (server → file map) + the deferred-tools mechanism caveat. Full detail is per-server in `mcp/`. |
+| `mcp/` | **Per-MCP capability map** — one file per server, tool-by-tool, READ-safe vs WRITE/mutating flagged, with real read-only samples. See `mcp/README.md`. |
+| `built-in-tools.md` | Non-MCP harness tools (Agent/Bash/Read/Write/Edit/ToolSearch/Skill/Monitor/Web*) + the available Skill list. |
+| `channels/` | Every channel/conversation Tony is in (Discord/Telegram/XMTP) + participants, cross-linked to `../contacts/`. See `channels/README.md`. |
 | `accounts-and-stations.md` | Comms identities: XMTP / Discord / Telegram accounts + stations and per-station capabilities. Public addresses/usernames only. |
 | `repos-and-infra.md` | Repos I work in, local paths, and infrastructure (relayer, monitoring, deploy previews). |
 | `socials-and-external.md` | Reach (Discord/Telegram/XMTP) and external/social tooling (X/Twitter, Typefully, JARVIS). |

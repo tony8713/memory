@@ -10,6 +10,10 @@
 - XMTP: verified, address tail …ef8b (line metro://xmtp/x0/85e076a16839fc6431056bcdd15f68b3)
 - Telegram: @bonustrack (user 25220238), stations: telegram bot `t0` + telegram-user station
 
+## Key channels (see `knowledge-base/channels/README.md`)
+- Discord **#api** `1030772407226601522` (k8s migration, Checkpoint #390/#394, #2125 split) · **interns** `1478881436168880218` · **gtm** `1448596560010150009` · his **test/DM channel** `1504226489359401221`.
+- Telegram `t0` (user 25220238) + telegram-user station; XMTP `metro://xmtp/x0/85e076a16839fc6431056bcdd15f68b3`.
+
 ## Context / notable interactions
 - Directs most work and sets Tony's conventions.
 - Defined the trust + reply-prefix scheme (■ for Less, ▶ for the other trusted 4).

@@ -8,6 +8,9 @@
 ## Platform IDs
 - Discord: `0cf5e` (global_name "Sekhmet", id 183666514920996864)
 
+## Key channels (see `knowledge-base/channels/README.md`)
+- Discord **#api** `1030772407226601522` (k8s migration, Checkpoint #390/#394, #2125 split) · **interns** `1478881436168880218`.
+
 ## Identity note
 Wiktor = Sekhmet = the same person. Confirmed by Less on 2026-06-26
 (previously tracked separately as the `sekhmet` slug, now merged here).

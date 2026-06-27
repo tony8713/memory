@@ -1,22 +1,32 @@
 # Index
 
-## Loop
-- [LOOP.md](LOOP.md) — my self-editable **hourly** loop prompt; the scheduler just pulls this repo and runs it (inbox sweep → memory delta → knowledge-base expansion → self-improvement).
+Map of everything in this repo (Tony's memory). I am Tony; **Metro** is the comms daemon/bot account I operate through.
 
-## Status (open items)
+## Start here
+- [README.md](README.md) — what this repo is.
+- [LOOP.md](LOOP.md) — my self-editable **hourly** loop prompt (inbox sweep → memory delta → knowledge-base expansion → self-improvement). The scheduler just pulls this repo and runs it.
 - [STATUS.md](STATUS.md) — carried-forward open items / next steps.
 
-## Knowledge base (what exists & how to use it)
-- [knowledge-base/](knowledge-base/README.md) — catalogue of all context + tooling.
-- [PROGRESS.md](knowledge-base/PROGRESS.md) — self-improvement tracker: Mapped / Partial / TODO + the next focus. Read first in PART 3 of the loop.
-- [mcp-servers](knowledge-base/mcp-servers.md) — every MCP server + key tools + caveats (server-level overview); deferred-tools + built-ins.
-- [accounts-and-stations](knowledge-base/accounts-and-stations.md) — XMTP/Discord/Telegram accounts, stations, capabilities.
+## Knowledge base
+- [knowledge-base/README.md](knowledge-base/README.md) — catalogue of all context + tooling; read at session start.
+- [knowledge-base/PROGRESS.md](knowledge-base/PROGRESS.md) — self-improvement tracker (Mapped / Partial / TODO + next focus). **Read first in PART 3 of the loop.**
+
+### Top-level KB files
+- [accounts-and-stations](knowledge-base/accounts-and-stations.md) — XMTP/Discord/Telegram accounts, stations, per-station capabilities.
 - [repos-and-infra](knowledge-base/repos-and-infra.md) — repos, local paths, relayer/monitoring/deploy infra.
 - [socials-and-external](knowledge-base/socials-and-external.md) — reach + X/Typefully/JARVIS.
-- `knowledge-base/mcp/` *(planned, being built)* — one file per MCP server, tool-by-tool, with safe read-only output samples and write/mutating flags.
-- `knowledge-base/channels/` *(planned, being built)* — every channel/conversation across Discord/Telegram/XMTP + its users (handle/id/role/trust/prefix).
+- [mcp-servers](knowledge-base/mcp-servers.md) — thin **index/pointer** into `mcp/` (server → file map). Full detail is per-server below.
+- [built-in-tools](knowledge-base/built-in-tools.md) — non-MCP harness tools (Agent/Bash/Read/Write/Edit/ToolSearch/Skill/Monitor/Web*) + the Skill list.
 
-## Preferences (read first)
+### MCP capability map — [knowledge-base/mcp/](knowledge-base/mcp/README.md) (one file per server, READ-safe vs WRITE flagged)
+- [metro](knowledge-base/mcp/metro.md) · [snapshot](knowledge-base/mcp/snapshot.md) · [better-stack](knowledge-base/mcp/better-stack.md) · [zapier](knowledge-base/mcp/zapier.md) · [sentry](knowledge-base/mcp/sentry.md) · [tenderly](knowledge-base/mcp/tenderly.md)
+- [notion](knowledge-base/mcp/notion.md) · [intercom](knowledge-base/mcp/intercom.md) · [netlify](knowledge-base/mcp/netlify.md) · [fireflies](knowledge-base/mcp/fireflies.md) · [snapshot-mysql](knowledge-base/mcp/snapshot-mysql.md)
+- [google-workspace](knowledge-base/mcp/google-workspace.md) (stub) · [oauth-gated-and-misc](knowledge-base/mcp/oauth-gated-and-misc.md) (Cloudflare/Calendly/Docusign/Slash/Browserbase)
+
+### Channels & users — [knowledge-base/channels/](knowledge-base/channels/README.md)
+- Every Discord/Telegram/XMTP channel Tony is in + its participants (handle/id/role/trust/prefix), cross-linked to contacts/.
+
+## Preferences (behavior rules — read early)
 - [trust-and-reply-conventions](preferences/trust-and-reply-conventions.md) — the 5 trusted members, reply-prefix scheme, info gating.
 - [reply-to-source-channel](preferences/reply-to-source-channel.md) — always answer in the originating Metro channel.
 - [ack-with-reaction](preferences/ack-with-reaction.md) — react before starting work.
@@ -29,13 +39,14 @@
 - [infra-and-monitoring](memory/infra-and-monitoring.md) — indexers, droplets, Better Stack alerts.
 
 ## Skills (playbooks)
-- [diagnose-sx-vote-pipeline](skills/diagnose-sx-vote-pipeline.md)
-- [split-pr-by-ui-vs-backend](skills/split-pr-by-ui-vs-backend.md)
-- [root-cause-discipline](skills/root-cause-discipline.md)
+- [diagnose-sx-vote-pipeline](skills/diagnose-sx-vote-pipeline.md) — trace an SX Starknet vote that didn't land (incl. the #2186/#2189 lost-write root cause).
+- [split-pr-by-ui-vs-backend](skills/split-pr-by-ui-vs-backend.md) — split a PR into UI vs backend stacked branches.
+- [root-cause-discipline](skills/root-cause-discipline.md) — confirm each hop before blaming the next.
 - [push-safe-signed-snapshot-vote](skills/push-safe-signed-snapshot-vote.md) — relay a Safe (EIP-1271) signed Snapshot vote to the sequencer.
+- [metro-comms-reliability](skills/metro-comms-reliability.md) — read-back is source of truth; the daemon drops inbound + lags sends.
 
-## Contacts
-- See [contacts/](contacts/README.md) — one file per person; platform IDs, trust level, reply-prefix, interactions.
+## Contacts — [contacts/README.md](contacts/README.md) (one file per person; platform IDs, trust, prefix)
+- [less](contacts/less.md) (■) · [wan](contacts/wan.md) (▶) · [chaitu](contacts/chaitu.md) (▶) · [wiktor](contacts/wiktor.md) (▶, =Sekhmet) · [amalio](contacts/amalio.md) (▶) · [adkhaan-scammer](contacts/adkhaan-scammer.md) (do-not-engage)
 
-## Reports
-- See [reports/](reports/) — newest first by filename.
+## Reports — [reports/](reports/)
+- Dated delta reports, newest first by filename (`reports/YYYY-MM-DD-HHMM.md`).

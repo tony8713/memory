@@ -42,4 +42,5 @@ Discord guild: **955773041898573854** (Snapshot Labs).
 | Amalio | trusted-5, ▶ | `amaliohidalgo` (1285995520174592085) | contacts/amalio.md |
 
 ## Status
-- **Partial.** Three key Discord lines (SX Ledger thread `1517956186929102869`, #api `1030772407226601522`, interns `1478881436168880218`) **verified 2026-06-27** via metro `read` (handles/ids confirmed). Still unverified: `1125390177888645231`, `1508453453930692669` (purpose+roster). Next: confirm those two, then split high-traffic channels into per-channel files if useful.
+- **Mostly mapped + cross-linked.** Three key Discord lines (SX Ledger thread `1517956186929102869`, #api `1030772407226601522`, interns `1478881436168880218`) **verified 2026-06-27** via metro `read`. Each trusted-5 contact file now carries a "Key channels" block pointing back here (contacts/ ↔ channels/ cross-linked both ways).
+- Still unverified: `1125390177888645231`, `1508453453930692669` (purpose+roster). Next: confirm those two, then split high-traffic channels into per-channel files if useful.

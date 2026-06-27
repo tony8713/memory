@@ -15,6 +15,7 @@ The metro daemon is **not a reliable transport**. Treat push/inbound as lossy an
 - For critical asks, a re-ping helps surface drops.
 - If drops/latency are frequent in a session, the daemon warrants a **restart / health check** — flag it as an operational item.
 - **Read-back reconciliation is the reliable recovery** and is now baked into the recurring loop: the 2h loop opens with a **PART-1 INBOX SWEEP across all stations** to catch dropped messages before doing anything else.
+- **Hot/active threads get a dedicated short-interval read-back poll (15-min cron) on top of the hourly sweep** — Wan-requested; push is lossy, read-back is reliable. The poll read-backs the hot thread(s) and replies to anything new/unhandled, independent of the hourly loop. Current hot list (tunable): SX Ledger thread `metro://discord/d0/1517956186929102869`.
 
 ## Comms etiquette — reply only when addressed
 - **Only reply when the message is addressed to me (Tony) / the team.** In channels where humans talk to each other (e.g. the gtm channel), a message that isn't @-addressed to me (via the "Metro" bot account) is probably not for me.

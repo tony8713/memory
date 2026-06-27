@@ -14,6 +14,8 @@
 ### PART 1 — INBOX SWEEP (do myself; comms read+reply)
 metro `read` across active stations/channels (Discord incl. SX Ledger thread, #api, interns, Less's test/DM channels; Telegram t0 + telegram-user; XMTP). Daemon DROPS inbound + lags send → READ-BACK, never assume. Reconcile each line's last ~10–15 msgs: anything addressed to me/the team unanswered, pending questions, actionable items? If unhandled → ACT (react first, then reply in same channel with the right trust-prefix, or spawn a worker). Else note handled.
 
+> **Hot threads also get a dedicated 15-min read-back poll (separate cron).** Push delivery is lossy, so active/hot threads are covered by a DEDICATED 15-minute read-back poll cron that runs independently of this hourly loop. The poll just read-backs the thread and replies to anything new/unhandled. Hot list (tunable): SX Ledger thread `metro://discord/d0/1517956186929102869` (Wan explicitly requested polling this thread). Add/remove threads from the poll list as activity shifts.
+
 ### PART 2 — MEMORY DELTA REPORT (delegate)
 git pull; read latest reports/ first; write reports/YYYY-MM-DD-HHMM.md as a DELTA. Update contacts/, skills/, STATUS.md as needed. No churn.
 

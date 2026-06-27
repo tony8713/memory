@@ -17,6 +17,10 @@ The metro daemon is **not a reliable transport**. Treat push/inbound as lossy an
 - **Read-back reconciliation is the reliable recovery** and is now baked into the recurring loop: the 2h loop opens with a **PART-1 INBOX SWEEP across all stations** to catch dropped messages before doing anything else.
 - **Hot/active threads get a dedicated short-interval read-back poll (15-min cron) on top of the hourly sweep** — Wan-requested; push is lossy, read-back is reliable. The poll read-backs the hot thread(s) and replies to anything new/unhandled, independent of the hourly loop. Current hot list (tunable): SX Ledger thread `metro://discord/d0/1517956186929102869`.
 
+## Comms reliability directly affects trust/usefulness — it cost a real task
+- **2026-06-27:** prolonged inbound-drop + outbound-lag made Tony unreliable for a real-time task, and **Wan retracted stamp #468** ("you're dropping too much message to be useful"). Reliability isn't cosmetic — sustained degradation erodes trust and gets work pulled.
+- A **daemon /mcp reconnect cleared it** (post-1408 count-sweeps across all stations arrived complete). **Escalate a daemon restart/reconnect SOONER** the next time degradation is detected in either direction — don't ride it out.
+
 ## Dropped events can hide ASSIGNED TASKS — not just chatter
 - **2026-06-27:** Wan role-pinged Tony in the "tony" channel (thread "Stamp - zod validation") to fix stamp #468. The ping was **dropped** (thread was archived + events lost), so the **assigned task** went unseen for hours. Lesson: drops don't only lose chatter — they can hide work assigned to you.
 - The **periodic full-Discord sweep** (ALL channels/threads, not just the SX Ledger 15-min poll) is needed to catch these. The hot-thread poll only covers its hot list; assignments can land anywhere.

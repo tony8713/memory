@@ -1,7 +1,7 @@
 # STATUS — open items (carried-forward)
 
 Last updated: 2026-06-27 (post-2008). Newest report: reports/2026-06-27-2008.md.
-Last checked: 2026-06-27 ~23:08 UTC — quiet, all handled, daemon healthy.
+Last checked: 2026-06-28 ~00:08 UTC — quiet, all handled, daemon healthy.
 
 > **SX vote saga (summary):** diagnosis **COMPLETE** — app layer is clean, loss is a silent 0-row / non-durable write at the psdb DB-gateway. **PR #2189 CLOSED** (Wan). Wan's two logs (06-27) were both the wrong type — Postgres **statement logging isn't capturing INSERTs** (`log_statement` ≠ `mod`/`all`), so the two past missing votes (15:11:13Z & 19:48:55Z) are **unknowable from logs**. **AWAITING Wan's decision** on flipping `log_statement='mod'`/`log_min_duration_statement=0` (forward fix, no app change) — or PlanetScale Query Insights. **#2125 split awaiting go.**
 

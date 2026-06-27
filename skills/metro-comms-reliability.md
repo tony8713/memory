@@ -15,7 +15,8 @@ The metro daemon is **not a reliable transport**. Treat push/inbound as lossy an
 - For critical asks, a re-ping helps surface drops.
 - If drops/latency are frequent in a session, the daemon warrants a **restart / health check** — flag it as an operational item.
 - **Read-back reconciliation is the reliable recovery** and is now baked into the recurring loop: the 2h loop opens with a **PART-1 INBOX SWEEP across all stations** to catch dropped messages before doing anything else.
-- **Hot/active threads get a dedicated short-interval read-back poll (15-min cron) on top of the hourly sweep** — Wan-requested; push is lossy, read-back is reliable. The poll read-backs the hot thread(s) and replies to anything new/unhandled, independent of the hourly loop. Current hot list (tunable): SX Ledger thread `metro://discord/d0/1517956186929102869`.
+- **Hot/active threads can get a dedicated short-interval read-back poll (~15-min cron) on top of the hourly sweep** — push is lossy, read-back is reliable. The poll read-backs the hot thread(s) and replies to anything new/unhandled, independent of the hourly loop.
+- **Arm hot-thread polls during degradation; RETIRE them once the daemon recovers AND the thread goes quiet** — a standing poll on a healthy daemon + dormant thread is just steady-state overhead the hourly PART 1 sweep already covers. (e.g. the SX Ledger 15-min poll `ac435a5e` was retired 2026-06-27 after recovery + ~11h dormancy.) Re-arm if drops recur or a thread heats up.
 
 ## Comms reliability directly affects trust/usefulness — it cost a real task
 - **2026-06-27:** prolonged inbound-drop + outbound-lag made Tony unreliable for a real-time task, and **Wan retracted stamp #468** ("you're dropping too much message to be useful"). Reliability isn't cosmetic — sustained degradation erodes trust and gets work pulled.

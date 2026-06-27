@@ -18,9 +18,11 @@ For the server-level overview (all connected servers at a glance) see `../mcp-se
 | `intercom.md` | claude.ai Intercom | **Done** | `list_articles` (59 articles, workspace `n9dmxtcs`, help.snapshot.box) |
 | `netlify.md` | claude.ai Netlify | **Done** | `get-user` (Tony), `get-teams` (tony8713/stagelabs/snapshotlabs), `get-projects` (SX 11 sites + Stage 2 sites) |
 | `fireflies.md` | claude.ai Fireflies | **Done** | `fireflies_get_user` (Tony, admin, 0 min) — schema-only otherwise (PII) |
+| `snapshot-mysql.md` | claude.ai Snapshot_MySQL | **Done** | `mysql_list_tables` (12 tables, `snapshot-hub@replica`), `mysql_describe_table` (proposals/votes — names only, no rows) |
+| `oauth-gated-and-misc.md` | Cloudflare / Calendly / Docusign / Slash / Browserbase | **Done (schema-only)** | Slash reachable (`list_endpoints`, 100+ endpoints — financial/PII, not exercised); Cloudflare/Calendly/Docusign OAuth-gated (auth not started); Browserbase tools listed, no sessions opened |
+
+Also: `../built-in-tools.md` — non-MCP harness tool + Skill catalog (Agent/Bash/Read/Write/Edit/ToolSearch/Skill/Monitor/WebSearch/WebFetch + Skill list). **Done.**
 
 ## TODO (next batches)
-- Google Workspace read-onlys — `list_labels` / `list_calendars` / `list_recent_files` (structure only, when warranted)
-- Snapshot_MySQL — `mysql_list_tables` (read-only)
-- Then: Cloudflare, Slash, Browserbase, Docusign, Calendly
-- Built-in/deferred tool catalog (non-MCP harness tools) + a structure/refactor pass
+- Google Workspace read-onlys — `list_labels` / `list_calendars` / `list_recent_files` (structure only) — only MCP left beyond the stub.
+- **Per-MCP map effectively complete.** Next: a **structure/refactor pass** — ensure `INDEX.md` covers channels/ + mcp/ + built-in-tools.md, cross-link contacts/ ↔ channels/, prune stale notes; then ongoing maintenance/verification.

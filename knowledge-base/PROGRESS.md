@@ -10,7 +10,10 @@ Legend: **Mapped** = done & verified · **Partial** = started, needs deepening/v
 - `knowledge-base/repos-and-infra.md` — repos, local paths, relayer/monitoring/deploy infra.
 - `knowledge-base/socials-and-external.md` — reach + X/Typefully/JARVIS.
 - Top-level structure: `README.md`, `INDEX.md`, `STATUS.md`, `reports/`, `contacts/`, `skills/`, `preferences/`, `memory/`.
-- `knowledge-base/mcp/` — per-MCP tool-by-tool files: `metro.md`, `snapshot.md`, `better-stack.md`, `zapier.md`, `sentry.md`, `tenderly.md`, `notion.md`, `intercom.md`, `netlify.md`, `fireflies.md` **Done** (real read-only calls captured); `google-workspace.md` **Stub** (schema-only). Index in `mcp/README.md`. See Partial for findings + remaining servers.
+- `knowledge-base/mcp/` — per-MCP tool-by-tool files: `metro.md`, `snapshot.md`, `better-stack.md`, `zapier.md`, `sentry.md`, `tenderly.md`, `notion.md`, `intercom.md`, `netlify.md`, `fireflies.md`, `snapshot-mysql.md` **Done** (real read-only calls captured); `oauth-gated-and-misc.md` (Cloudflare/Calendly/Docusign/Slash/Browserbase) **Done (schema-only)**; `google-workspace.md` **Stub**. Index in `mcp/README.md`. Per-MCP map effectively complete.
+- `knowledge-base/built-in-tools.md` **Done (2026-06-27)** — non-MCP harness tool catalog (Agent + sub-agent types, Bash/Read/Write/Edit, ToolSearch, Skill, Monitor/WebSearch/WebFetch, SendMessage/TaskStop/Worktree) + the available Skill list.
+- `mcp/snapshot-mysql.md` (2026-06-27) — Snapshot_MySQL REACHABLE: read-only `snapshot-hub@replica`, 12 tables; proposals (34c) + votes (15c, PK voter+space+proposal) schema captured (names only, NO rows). Distinct from the mana/PlanetScale relayer DB.
+- `mcp/oauth-gated-and-misc.md` (2026-06-27) — **Slash** REACHABLE (banking/spend API, 100+ endpoints, financial PII → only `GET /tokens/prices` safe-public, not exercised); **Cloudflare/Calendly/Docusign** OAuth-gated (auth NOT started, verify in main); **Browserbase** tools listed but no session opened.
 - `knowledge-base/channels/` Discord rosters — SX Ledger thread `1517956186929102869`, #api `1030772407226601522`, interns `1478881436168880218` **verified 2026-06-27** via metro `read` (handles/ids confirmed; "unverified" removed in `channels/README.md`).
 
 ## Partial
@@ -27,4 +30,9 @@ Legend: **Mapped** = done & verified · **Partial** = started, needs deepening/v
 - **Cross-linking** — once channels/ and mcp/ exist, link them from INDEX.md and the kb README, and cross-reference contacts/ ↔ channels/.
 
 ## Next focus (for the next tick)
-Continue per-MCP `knowledge-base/mcp/` with the NEXT batch via SAFE read-only calls only: **Snapshot_MySQL** (`mysql_list_tables` / `mysql_describe_table` — schema/table names only, NO row dumps of PII), **Cloudflare** / **Calendly** / **Docusign** / **Browserbase** (most are OAuth `authenticate`-gated → likely unavailable headless; note that), and **Slash** (`list_endpoints`/`get_endpoint_schema`). Then a **built-in/deferred harness tool catalog** + a **structure/refactor pass** (cross-link channels/ ↔ mcp/ ↔ contacts/ from INDEX.md). Also: VERIFY remaining unverified Discord lines `1125390177888645231` + `1508453453930692669` via metro `read`.
+**STRUCTURE/REFACTOR pass** (per-MCP map + built-in catalog now effectively complete):
+1. Ensure `INDEX.md` covers everything new — `knowledge-base/mcp/` (incl. snapshot-mysql + oauth-gated-and-misc), `knowledge-base/built-in-tools.md`, and `knowledge-base/channels/`. Add links if missing.
+2. Cross-link contacts/ ↔ channels/ (each trusted-5 contact → the channels they appear in; each channel roster → contact files).
+3. Prune/merge any stale or duplicate notes (e.g. `mcp-servers.md` server-level overview vs the now-complete per-MCP `mcp/` files — consider demoting `mcp-servers.md` to a pure pointer).
+4. Optional remaining read-only: Google Workspace `list_labels`/`list_calendars`/`list_recent_files` (structure only) to lift `google-workspace.md` off stub; VERIFY Discord lines `1125390177888645231` + `1508453453930692669` via metro `read`.
+Then move to ongoing maintenance/verification mode (re-verify drifted facts rather than net-new mapping).

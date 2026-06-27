@@ -17,6 +17,11 @@ The metro daemon is **not a reliable transport**. Treat push/inbound as lossy an
 - **Read-back reconciliation is the reliable recovery** and is now baked into the recurring loop: the 2h loop opens with a **PART-1 INBOX SWEEP across all stations** to catch dropped messages before doing anything else.
 - **Hot/active threads get a dedicated short-interval read-back poll (15-min cron) on top of the hourly sweep** — Wan-requested; push is lossy, read-back is reliable. The poll read-backs the hot thread(s) and replies to anything new/unhandled, independent of the hourly loop. Current hot list (tunable): SX Ledger thread `metro://discord/d0/1517956186929102869`.
 
+## Dropped events can hide ASSIGNED TASKS — not just chatter
+- **2026-06-27:** Wan role-pinged Tony in the "tony" channel (thread "Stamp - zod validation") to fix stamp #468. The ping was **dropped** (thread was archived + events lost), so the **assigned task** went unseen for hours. Lesson: drops don't only lose chatter — they can hide work assigned to you.
+- The **periodic full-Discord sweep** (ALL channels/threads, not just the SX Ledger 15-min poll) is needed to catch these. The hot-thread poll only covers its hot list; assignments can land anywhere.
+- **Archived threads must be un-archived (post a message) before you can react/reply** — reacting on an archived thread won't work.
+
 ## Comms etiquette — reply only when addressed
 - **Only reply when the message is addressed to me (Tony) / the team.** In channels where humans talk to each other (e.g. the gtm channel), a message that isn't @-addressed to me (via the "Metro" bot account) is probably not for me.
 - **Check the @-target before replying.** If it's directed at a specific person, stay out unless asked.

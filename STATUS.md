@@ -1,10 +1,11 @@
 # STATUS — open items (carried-forward)
 
-Last updated: 2026-06-27 (post-1310). Newest report: reports/2026-06-27-1310.md.
+Last updated: 2026-06-27 (post-1408). Newest report: reports/2026-06-27-1408.md.
 
 > **SX vote saga (summary):** diagnosis **COMPLETE** — app layer is clean, loss is a silent 0-row / non-durable write at the psdb DB-gateway. **PR #2189 CLOSED** (Wan). Wan's two logs (06-27) were both the wrong type — Postgres **statement logging isn't capturing INSERTs** (`log_statement` ≠ `mod`/`all`), so the two past missing votes (15:11:13Z & 19:48:55Z) are **unknowable from logs**. **AWAITING Wan's decision** on flipping `log_statement='mod'`/`log_min_duration_statement=0` (forward fix, no app change) — or PlanetScale Query Insights. **#2125 split awaiting go.**
 
 ## Open / next
+- **stamp #468 (snapshot-labs/stamp) — AWAITING OWNERSHIP CONFIRM.** "Add zod validation — Part 1: JSON-RPC boundary" (split from PR #451). Wan **role-pinged Tony** in the "tony" channel (thread "Stamp - zod validation", 05:16); ping was **missed** (archived thread + dropped events) → now acknowledged, thread unarchived. The **#interns** thread assigned the SAME issue to a different user (`1471598965756788970`), so **asked Wan to confirm ownership before implementing** (avoid duplicate PRs). Do NOT start until Wan confirms.
 - **sx-monorepo #2125 split — AWAITING GO.** Adds `active_proposal_count` `@computed` + Explore "Active" column. Plan (NOT pushed): 2 API files stay on #2125; 4 UI files → stacked branch `feat/active-proposals-explore-ui` on `feat/active-proposals-explore`. CI red (depends on checkpoint#390). Execute on Less/Sekhmet go.
 - **checkpoint#390 (`@computed`) — utACK/COMMENT (sekhmet-review).** Wiktor is author+reviewer. Open blocker: `getNestedResolver` passes plural `columnName` into `getLoader` (needs singular entity name). New finding: computed-where loop ignores `prefix` in nested recursion (`resolvers.ts:149`) → nested where-key hijack risk. Relayed to Less, not posted to GitHub. #2125 depends on this.
 - **SX API k8s migration (Wiktor, 2026-06-27).** arb1 synced in 24.5h on k8s ($48 server, no manual indexes); Base failed (edge RPC block-range limits, fixed in new Checkpoint). Plan: release new Checkpoint + drop old droplets → fully k8s-hosted API.

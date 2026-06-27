@@ -15,8 +15,8 @@ Discord guild: **955773041898573854** (Snapshot Labs).
 | `1478881436168880218` | interns | Less (■ 238307675501232128), Sekhmet (▶ 183666514920996864), Chaitu (▶ `chaituvr` 497104796919267329), Wan (▶ 293785374063460355), `tonyshot26`/"Yooo" (1477276312430313503) | **Verified 2026-06-27** (metro read). Team banter + indexer/hub-restart pings; has sub-threads. `tonyshot26` = separate Tony Discord acct (no prefix). |
 | `1448596560010150009` | gtm | Amalio (▶), Less (■) | Amalio confirmed via Less @-mention here. Content/Typefully flow. |
 | `1504226489359401221` | Less test / DM channel | Less (■) | Connectivity-test count-ping sweeps land here. |
-| `1125390177888645231` | (purpose unverified) | (unverified) | |
-| `1508453453930692669` | (purpose unverified) | (unverified) | |
+| `1125390177888645231` | **Snapshot Labs team / payment-feed channel** | Less (■ 238307675501232128), Amalio (▶ 1285995520174592085), Metro; bots: `snapshot` (892847850780762122) proposal-created embeds, `Schnaps` webhook (1360820059756433460) "New payment of N USDC" feeds | **Verified 2026-06-27** (metro read). Mixes payment notifications (Schnaps + Stage "received payment" FYIs) with team chat (Stage History screenshots, GTM/Notion research links). |
+| `1508453453930692669` | **1:1 DM: tonyshot26 ↔ Metro bot** (personal setup/onboarding) | `tonyshot26`/"Yooo"/"Hery" (1477276312430313503), Metro bot (1502253402384633997) | **Verified 2026-06-27** (metro read). Private DM used for Metro setup (e.g. Firebase service-account onboarding) + identity-verification handshakes. Same `tonyshot26` acct seen in interns. NOTE: history contains a posted creds file — do not quote its contents. |
 
 ## Telegram
 
@@ -42,5 +42,5 @@ Discord guild: **955773041898573854** (Snapshot Labs).
 | Amalio | trusted-5, ▶ | `amaliohidalgo` (1285995520174592085) | contacts/amalio.md |
 
 ## Status
-- **Mostly mapped + cross-linked.** Three key Discord lines (SX Ledger thread `1517956186929102869`, #api `1030772407226601522`, interns `1478881436168880218`) **verified 2026-06-27** via metro `read`. Each trusted-5 contact file now carries a "Key channels" block pointing back here (contacts/ ↔ channels/ cross-linked both ways).
-- Still unverified: `1125390177888645231`, `1508453453930692669` (purpose+roster). Next: confirm those two, then split high-traffic channels into per-channel files if useful.
+- **All known Discord lines now verified (2026-06-27).** The last two (`1125390177888645231` team/payment-feed; `1508453453930692669` tonyshot26↔Metro DM) confirmed via metro `read`; no `(unverified)` Discord rows remain. Each trusted-5 contact file carries a "Key channels" block pointing back here (contacts/ ↔ channels/ cross-linked both ways).
+- Next (optional): split high-traffic channels into per-channel files if useful; otherwise maintenance mode (re-verify on drift).

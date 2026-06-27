@@ -1,8 +1,8 @@
 # STATUS — open items (carried-forward)
 
-Last updated: 2026-06-27 (post-1110). Newest report: reports/2026-06-27-1110.md.
+Last updated: 2026-06-27 (post-1208). Newest report: reports/2026-06-27-1208.md.
 
-> **SX vote saga (summary):** diagnosis **COMPLETE** — app layer is clean (logs exhausted), loss is a silent 0-row / non-durable write at the psdb DB-gateway. **PR #2189 CLOSED** (Wan). **Awaiting PlanetScale Query Insights** for the two missing-vote timestamps (15:11:13Z & 19:48:55Z) — the only remaining source of truth. **#2125 split awaiting go.**
+> **SX vote saga (summary):** diagnosis **COMPLETE** — app layer is clean, loss is a silent 0-row / non-durable write at the psdb DB-gateway. **PR #2189 CLOSED** (Wan). Wan's two logs (06-27) were both the wrong type — Postgres **statement logging isn't capturing INSERTs** (`log_statement` ≠ `mod`/`all`), so the two past missing votes (15:11:13Z & 19:48:55Z) are **unknowable from logs**. **AWAITING Wan's decision** on flipping `log_statement='mod'`/`log_min_duration_statement=0` (forward fix, no app change) — or PlanetScale Query Insights. **#2125 split awaiting go.**
 
 ## Open / next
 - **sx-monorepo #2125 split — AWAITING GO.** Adds `active_proposal_count` `@computed` + Explore "Active" column. Plan (NOT pushed): 2 API files stay on #2125; 4 UI files → stacked branch `feat/active-proposals-explore-ui` on `feat/active-proposals-explore`. CI red (depends on checkpoint#390). Execute on Less/Sekhmet go.

@@ -19,6 +19,8 @@ metro `read` across active stations/channels (Discord incl. SX Ledger thread, #a
 ### PART 2 — MEMORY DELTA REPORT (delegate)
 git pull; read latest reports/ first; write reports/YYYY-MM-DD-HHMM.md as a DELTA. Update contacts/, skills/, STATUS.md as needed. No churn.
 
+> **Quiet-tick rule:** Only write a new `reports/YYYY-MM-DD-HHMM.md` when there's genuinely new substance (messages handled, task done, decision, state change). On a QUIET tick (sweep finds everything already handled, nothing new), do NOT create a report file — instead update the "Last checked" heartbeat line in `STATUS.md`. Reports are for substance; STATUS heartbeat is for liveness. Avoids per-hour churn.
+
 ### PART 3 — KNOWLEDGE-BASE EXPANSION (delegate; THE big recurring focus)
 Advance the structured knowledge base a meaningful step each tick, guided by knowledge-base/PROGRESS.md. Targets:
   a) **Channels & users map** — `knowledge-base/channels/`: enumerate every channel/conversation Tony is in across Discord/Telegram/XMTP (id, name, station, purpose), and for each, the participants/users seen (handle, id, role, trust level, prefix). Build this by reading channel history via metro and listing accounts. One file per major channel or a structured index — keep it navigable. Mark trusted-5 explicitly.

@@ -6,6 +6,7 @@ Map of everything in this repo (Tony's memory). I am Tony; **Metro** is the comm
 - [README.md](README.md) — what this repo is.
 - [LOOP.md](LOOP.md) — my self-editable **hourly** loop prompt (inbox sweep → memory delta → knowledge-base expansion → self-improvement). The scheduler just pulls this repo and runs it.
 - [STATUS.md](STATUS.md) — carried-forward open items / next steps.
+- [BOOTSTRAP.md](BOOTSTRAP.md) — how to re-arm the loop after a session restart (recreate the session-only cron).
 
 ## Knowledge base
 - [knowledge-base/README.md](knowledge-base/README.md) — catalogue of all context + tooling; read at session start.

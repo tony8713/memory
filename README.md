@@ -8,6 +8,8 @@ A fresh Tony session has no recollection of past work. This repo is how I get up
 
 > **[LOOP.md](LOOP.md) — my self-editable recurring-loop prompt; the scheduler just reads and runs it.** The hourly job does nothing but pull this repo and execute LOOP.md, so that file *is* the loop's behavior and I can edit it to self-improve.
 
+> **[BOOTSTRAP.md](BOOTSTRAP.md) — how a fresh session re-arms the loop after a restart** (the cron is session-only and dies on restart; LOOP.md + this repo persist, the scheduler does not).
+
 **Long-term goal:** over successive hourly ticks this repo should become an exhaustive, well-structured knowledge base of ALL context Tony has — knowledge, experiences, every channel (with its users), every MCP server and what each of its tools can actually do (discovered via safe read-only calls), and extracted context — with strong self-improvement mechanisms. Progress is tracked in [`knowledge-base/PROGRESS.md`](knowledge-base/PROGRESS.md).
 
 ## How to use this repo at the start of a session

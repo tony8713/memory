@@ -1,7 +1,7 @@
 # STATUS — open items (carried-forward)
 
 Last updated: 2026-06-27 (post-2008). Newest report: reports/2026-06-27-2008.md.
-Last checked: 2026-06-28 ~14:10 UTC — quiet (all handled, daemon healthy). KB step: de-stubbed `mcp/google-workspace.md` (structure-only); per-MCP map now 100% complete.
+Last checked: 2026-06-28 ~15:10 UTC — quiet sweep, nothing actionable (all active channels' last msg is Tony's own reply; SX Ledger awaiting Wan's `log_statement='mod'` decision, #api #2125 split + checkpoint #390 awaiting Less/Sekhmet go, #interns stamp thread is Chai3+Wan). KB in maintenance mode (100% mapped) — no safe net-new one-step advance, skipped per no-churn rule. Daemon healthy.
 
 > **SX vote saga (summary):** diagnosis **COMPLETE** — app layer is clean, loss is a silent 0-row / non-durable write at the psdb DB-gateway. **PR #2189 CLOSED** (Wan). Wan's two logs (06-27) were both the wrong type — Postgres **statement logging isn't capturing INSERTs** (`log_statement` ≠ `mod`/`all`), so the two past missing votes (15:11:13Z & 19:48:55Z) are **unknowable from logs**. **AWAITING Wan's decision** on flipping `log_statement='mod'`/`log_min_duration_statement=0` (forward fix, no app change) — or PlanetScale Query Insights. **#2125 split awaiting go.**
 

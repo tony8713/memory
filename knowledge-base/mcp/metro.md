@@ -2,7 +2,8 @@
 
 **Server:** `metro` (local comms daemon — Tony/Metro's messaging bridge across XMTP, Discord, Telegram).
 **Purpose:** Send/read messages and manage channels across stations. Every tool takes the `line` attribute verbatim (the station is derived from it). This is the bot account Tony operates through.
-**Caveat:** Daemon is reliability-DEGRADED both directions — inbound DROPS (count-sweeps arrive with gaps) and outbound `send`/`react` hit **300s timeouts** repeatedly. Always READ-BACK; never assume a send landed. A restart is the likely fix. See `skills/metro-comms-reliability.md`.
+**Caveat:** Daemon is reliability-DEGRADED both directions — inbound DROPS (count-sweeps arrive with gaps) and outbound write verbs hit **300s timeouts** repeatedly. Always READ-BACK; never assume a send landed. A restart is the likely fix. See `skills/metro-comms-reliability.md`.
+**Write-verb timeout semantics:** `send`/`reply`/`react` frequently return a 300s MCP idle-timeout ERROR even though the write **actually SUCCEEDED server-side** (confirmed 2026-06-29: three replies all "timed out" yet a `read` showed all three posted). Treat a timeout as **"unknown, probably delivered" — NOT "failed."** After any write timeout, FIRST `read` the channel to check whether it landed; do NOT blindly retry or you double/triple-post (spam).
 
 ## Real captured context (`mcp__metro__list_accounts`, 2026-06-27)
 Accounts (PUBLIC identity only — no tokens/keys/mnemonic ever returned):

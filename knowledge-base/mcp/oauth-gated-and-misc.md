@@ -28,5 +28,10 @@ Endpoint groups (from `list_endpoints`):
 
 > Only obviously-safe Slash call: `GET /tokens/prices` (public, no PII). Everything else is gated behind a legal entity and carries money/PII — don't poke for curiosity.
 
+## "x" MCP — DEFINED BUT UNREACHABLE (not running)
+**Status: configured, NOT running (2026-06-29).** Defined in `~/.claude.json` as a **static HTTP endpoint** `http://127.0.0.1:8000/mcp` with **no launcher** — there is no command to start a server, and **nothing listens on :8000**. So no tools are ever exposed; the server is effectively dead config.
+
+Consequence: the BOOTSTRAP item *"X MCP just installed → like the queued @SnapshotLabs tweets + add an X auto-like loop step"* is **BLOCKED**. Do not attempt the X auto-like step — the MCP is unreachable. X remains reachable only via **Zapier X actions** (`mcp/zapier.md`) or the X API directly (`socials-and-external.md`). If X tooling is wanted, either stand up a server on :8000 or use the Zapier path.
+
 ## Browserbase (`claude.ai Browserbase`) — tools exposed, but stateful/agentic → not exercised
 Cloud headless-browser automation. Tools: `start` (open/reuse a session), `navigate`, `act` (perform an action on the page), `extract` (pull data via instruction), `observe` (find actionable elements), `end` (close session). `act` mutates page state and `start` consumes a real cloud session — NOT invoked. Use only when a task genuinely needs to drive a browser (e.g. a site with no API); always `end` the session after.

@@ -28,8 +28,6 @@ Legend: **Mapped** = done & verified · **Partial** = started, needs deepening/v
 - Nothing net-new outstanding. (All Discord lines now verified.) Optionally de-stub Google Workspace, then operate in maintenance mode (re-verify drifted facts; keep STATUS/reports fresh).
 
 ## Next focus (for the next tick)
-**ONGOING MAINTENANCE + VERIFICATION** (per-MCP map + built-in catalog + structure pass all complete):
-1. ~~Verify the 2 remaining Discord lines~~ **DONE 2026-06-27** (`1125390177888645231` team/payment-feed; `1508453453930692669` tonyshot26↔Metro DM). All Discord lines verified.
-2. ~~Optional Google Workspace de-stub~~ **DONE 2026-06-28** (structure-only; Gmail no custom labels, 2 calendars). KB mapping now 100% complete — pure maintenance mode.
-3. **Re-verify drifted facts** rather than net-new mapping: confirm IDs/dashboards/sources still valid, prune anything stale, keep STATUS/reports fresh.
-No net-new mapping is outstanding — treat the KB as in maintenance mode.
+This tick (2026-06-29) added a net-new MCP fact — the dead **"x" MCP** (`mcp/oauth-gated-and-misc.md`) — and a new preference (Discord @-mention etiquette, `preferences/working-discipline.md` item 6).
+
+**Concrete next focus:** **Audit `~/.claude.json` for any OTHER configured-but-unreachable MCP servers** (same failure mode as "x": static HTTP endpoint, no launcher, nothing listening). Cross-check the config's `mcpServers` list against what actually resolves tools, and record a short "configured vs. live" reconciliation in `knowledge-base/mcp/README.md` so future ticks don't chase dead endpoints (e.g. the BOOTSTRAP X auto-like task). Then resume re-verifying drifted facts (IDs/dashboards/sources) and keeping STATUS/reports fresh. No net-new *capability* mapping is otherwise outstanding — KB stays in maintenance mode.

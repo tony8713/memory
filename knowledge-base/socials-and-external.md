@@ -12,6 +12,7 @@ All via the **Metro** comms daemon — see `accounts-and-stations.md`.
 ### X / Twitter
 - Reachable via **Zapier** (X actions) or the **X API** directly.
 - Use the Zapier flow (`list_enabled_zapier_actions` → discover → enable → execute) when posting/reading on X.
+- **A dedicated "x" MCP exists in `~/.claude.json` config but is UNREACHABLE** (static HTTP `http://127.0.0.1:8000/mcp`, no launcher, nothing on :8000) → the BOOTSTRAP "X auto-like queued @SnapshotLabs tweets" task is BLOCKED. See `knowledge-base/mcp/oauth-gated-and-misc.md`. Use the Zapier/X-API path instead.
 
 ### Typefully (content pipeline)
 - Used by **Amalio** for content/marketing. Flow: **JARVIS (approval) → Typefully (intermediate/scheduling) → analytics.**

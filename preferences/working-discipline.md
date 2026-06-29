@@ -11,3 +11,5 @@ Behaviors learned from team feedback while doing real work:
 4. **Verify Metro (comms) sends/reacts rather than blindly resending.** The metro send/react MCP calls sometimes hit a 300s idle-timeout error *even when they actually succeeded*. Read back the channel to confirm before resending — avoid duplicate posts.
 
 5. **Acknowledge fast.** React quickly on inbound; delegate deep diagnosis to background workers so the comms session stays responsive.
+
+6. **In Discord, don't treat every message as directed at the bot.** Respond only when **@-mentioned, replied-to, or the message is clearly actionable for the team**. Otherwise stay quiet (just sweep/read). Team feedback in #workflow, 2026-06-29 — over-responding to ambient channel chatter is noise. (Pairs with `preferences/reply-to-source-channel.md`, which governs *where* to reply once you've decided to.)

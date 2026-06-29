@@ -27,3 +27,20 @@ Also: `../built-in-tools.md` — non-MCP harness tool + Skill catalog (Agent/Bas
 Per-MCP map done; structure/refactor pass done (2026-06-27) — `INDEX.md` links mcp/ + channels/ + built-in-tools.md, contacts/ ↔ channels/ cross-linked, `../mcp-servers.md` demoted to a pointer.
 
 Only remaining optional item: Google Workspace de-stub — `list_labels` / `list_calendars` / `list_recent_files` (structure only) to lift `google-workspace.md` off stub. Otherwise re-verify drifted facts rather than net-new mapping.
+
+## Configured-vs-live reconciliation (audited 2026-06-29)
+Two sources of MCP servers, **do not confuse them**:
+
+1. **claude.ai account connectors** (Snapshot, Notion, Sentry, Tenderly, Netlify, Intercom, Fireflies, Zapier, Better Stack, Snapshot_MySQL, Gmail/Calendar/Drive, Cloudflare, Calendly, Docusign, Slash, Browserbase, NickAI, …). These are **NOT in `~/.claude.json`** — they come from the claude.ai integration layer and surface here as deferred tools. All the rich servers mapped in this folder are these. **NickAI** appears in the deferred-tool list now (OAuth-style `authenticate`/`complete_authentication` pair, not yet exercised).
+
+2. **Locally-configured servers in `~/.claude.json`** — only a handful, and **most are project-scoped** (only active when cwd matches that project root). Audited:
+
+| Name | Scope | Transport / target | Live here? | Note |
+|---|---|---|---|---|
+| `metro` | top-level + project `/` | http `mcp.metro.box` (token-in-URL) | **LIVE** | the comms daemon; token NOT recorded (secret) |
+| `x` | top-level | http `127.0.0.1:8000/mcp` | **DEAD** | no launcher, nothing on :8000 → BOOTSTRAP X auto-like BLOCKED (see `oauth-gated-and-misc.md`) |
+| `unreal-mcp` | project `/` | http `127.0.0.1:8000/mcp` | **DEAD** | **same dead endpoint as `x`** — a renamed/repurposed local stub; equally unreachable |
+| `chrome-devtools-mcp` | project `/Users/tony` | stdio `npx chrome-devtools-mcp@latest` | inactive here | only loads when cwd = `/Users/tony`; not in current project scope |
+| `metro-http` | project `/Users/tony/Cursor/bonustrack/metro/metro` | http `mcp.metro.box` (no token) | inactive here | duplicate metro endpoint scoped to the metro repo |
+
+**Takeaway for future ticks:** the only configured-but-unreachable static-HTTP endpoints are `x` and `unreal-mcp`, **both** pointing at the dead local `127.0.0.1:8000/mcp` (no listener) — do **not** chase either. Everything genuinely available comes from the claude.ai connector layer (mapped in this folder) plus `metro`. No new reachable local servers to map.

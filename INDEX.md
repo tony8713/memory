@@ -47,6 +47,7 @@ Map of everything in this repo (Tony's memory). I am Tony; **Metro** is the comm
 - [push-safe-signed-snapshot-vote](skills/push-safe-signed-snapshot-vote.md) — relay a Safe (EIP-1271) signed Snapshot vote to the sequencer.
 - [metro-comms-reliability](skills/metro-comms-reliability.md) — read-back is source of truth; the daemon drops inbound + lags sends.
 - [xmtp-multi-client-installation-cap](skills/xmtp-multi-client-installation-cap.md) — XMTP send-outage failure mode (dup client → installation cap → shared-IP rate bucket → missing deployed loader patch) + fix sequence.
+- [sx-address-normalization-checksum](skills/sx-address-normalization-checksum.md) — don't lowercase addresses at the sequencer (ingestion enforces EIP-55; #2169 closed); ENS catch-narrowing pattern.
 
 ## Contacts — [contacts/README.md](contacts/README.md) (one file per person; platform IDs, trust, prefix)
 - [less](contacts/less.md) (■) · [wan](contacts/wan.md) (▶) · [chaitu](contacts/chaitu.md) (▶) · [wiktor](contacts/wiktor.md) (▶, =Sekhmet) · [amalio](contacts/amalio.md) (▶) · [adkhaan-scammer](contacts/adkhaan-scammer.md) (do-not-engage)

@@ -49,4 +49,11 @@ This tick (2026-06-29, post-1830) **completed** the configured-vs-live MCP recon
 8. **Grafana MCP re-add (NEW 2026-06-30 1608, pending Less).** wa0x6e asked Less to re-add Grafana to tony's MCP. Not yet in the connector set. Once added, verify read-only access and use it to confirm pineapple-style pod-kill causes (k8s events / node metrics) directly — closes the "k8s events unconfirmed" gap. Track as capability-pending.
 9. **Pineapple k8s-event confirmation (NEW 2026-06-30 1608, low urgency).** The 2026-06-28 22:31 UTC pineapple pod `pineapple-54d65f6684-6ljs4` restart was RCA'd to an infra-level pod kill (no deploy/merge/Sentry), but the exact cause (OOMKilled vs Evicted vs node drain) is unconfirmed — needs cluster event access (kubectl/Grafana, see #8). Single transient blip, service recovered; confirm opportunistically once Grafana is wired.
 
+**Next focus (set 2026-07-01, post-0900) — HIGH-activity hour, sx ENS/address work:**
+- **A. snapshot.js#1203 push decision (await Wan).** ChaituVR owns the open sequencer-side ENS fix (green/mergeable). Only outstanding = Wan's fallback-catch narrowing (`CALL_EXCEPTION` + re-throw infra, same as sx#2143). Once Wan says go, push the narrowing to Chaitu's branch + relay to Chaitu (he owns it). Tracked in contacts/chaitu.md.
+- **B. Sequencer `isSameAddress` swap (await Wan's go).** Add a local `isSameAddress` helper, replace the 16 ad-hoc `toLowerCase()` comparison sites across 6 writer files (delete-proposal, flag-proposal, settings, proposal, follow, moderation). Do NOT lowercase stored data (regresses dedup/leaderboard/follows — see skills/sx-address-normalization-checksum.md, the reason #2169 was closed).
+- **C. Discord raid outcome.** User `1520075759685734462` mass-image-spammed 10+ channels; flagged to Less, recommended ban+bulk-delete, awaiting auth. Follow up on whether Less authorized + the moderation was executed. Loop stays read-only; this is a human-authorized action.
+- **D. sx#2143** is approved (chai3-bot) — watch for merge.
+- New skill: `skills/sx-address-normalization-checksum.md` (don't normalize at sequencer; ENS catch-narrowing pattern).
+
 **Build follow-up (not a regression):** telegram-user **inbound** was never implemented (no MTProto/user train, bot tokens only). Track as a P2 build item.

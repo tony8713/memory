@@ -18,6 +18,7 @@ Map of everything in this repo (Tony's memory). I am Tony; **Metro** is the comm
 - [socials-and-external](knowledge-base/socials-and-external.md) — reach + X/Typefully/JARVIS.
 - [mcp-servers](knowledge-base/mcp-servers.md) — thin **index/pointer** into `mcp/` (server → file map). Full detail is per-server below.
 - [built-in-tools](knowledge-base/built-in-tools.md) — non-MCP harness tools (Agent/Bash/Read/Write/Edit/ToolSearch/Skill/Monitor/Web*) + the Skill list.
+- [hardening-plan](knowledge-base/hardening-plan.md) — prioritized Metro reliability hardening plan (P0 MCP single-transport/rebind wedge + retire local dispatcher; P1 deploy preflight, inbound heartbeat, reconnect backfill; P2 identity pinning, telegram-user). From the 2026-06-28 incident.
 
 ### MCP capability map — [knowledge-base/mcp/](knowledge-base/mcp/README.md) (one file per server, READ-safe vs WRITE flagged)
 - [metro](knowledge-base/mcp/metro.md) · [snapshot](knowledge-base/mcp/snapshot.md) · [better-stack](knowledge-base/mcp/better-stack.md) · [zapier](knowledge-base/mcp/zapier.md) · [sentry](knowledge-base/mcp/sentry.md) · [tenderly](knowledge-base/mcp/tenderly.md)

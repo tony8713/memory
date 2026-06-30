@@ -158,6 +158,21 @@ the `TELEGRAM_USER_*` config. Scope as a standalone follow-up project, not part 
 **Risk.** Medium — user-account automation has stricter ToS/rate considerations than bot tokens.
 **P2.**
 
+### 8. No Discord thread support in the loop session (2026-06-30)
+**Problem.** When Sekhmet (and others) ask the bot to "reply in a thread," it cannot — metro has no
+thread verb, and the `discord` tool that the `discord` skill documents (`threadCreate`/`threadReply`)
+is **not registered in the loop session** (only `mcp__metro__*` + `claude_ai_*` MCPs are wired up).
+The bot can only fake it with an **inline reply** (`reply` quoting the anchor `message_id`), which
+threads visually but does not open a real Discord thread.
+
+**Root cause.** The `discord` tool / a metro thread verb is not exposed to this headless session.
+
+**Fix.** Wire the `discord` tool (or add a metro `thread_create`/`thread_reply` verb) so true threaded
+replies work. Until then, inline-reply (`reply_to`) is the documented workaround
+(see `knowledge-base/mcp/metro.md`).
+
+**Risk.** Low. **P2.**
+
 ---
 
 ## Priority summary
@@ -165,4 +180,5 @@ the `TELEGRAM_USER_*` config. Scope as a standalone follow-up project, not part 
   #3 retire local dispatcher (one client per inbox).
 - **P1:** #2 commit patch + clean-tree deploy preflight; #5 per-station inbound heartbeat + alert;
   #7 persisted cursor + resumable backfill.
-- **P2:** #4 pin explicit identity set; #6 build telegram-user (gramjs) train.
+- **P2:** #4 pin explicit identity set; #6 build telegram-user (gramjs) train; #8 wire the `discord`
+  tool / metro thread verb (no threaded replies today — inline-reply workaround only).

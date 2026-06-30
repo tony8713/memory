@@ -58,6 +58,10 @@ WRITE / mutating (documented from schema — invoke only for real comms work, ne
 - `add_members` — add members to a channel. **WRITE.**
 - `remove_members` — remove members from a channel. **WRITE/destructive.**
 
+## NO thread support — inline-reply workaround (2026-06-30)
+metro has **no thread verb**. The verbs above (send/reply/react/edit/delete/read/dm/ask/create_channel/…) **cannot create a Discord thread or post into one.** The `discord` skill documents `threadCreate`/`threadReply`, but the backing `discord` tool is **NOT registered in the loop session** (only `mcp__metro__*` + `claude_ai_*` MCPs are wired up). So a "reply in a thread" request can only be served as an **inline reply** — `reply` quoting the anchor `message_id` (`reply_to`), which threads visually under the message but does not open a real Discord thread.
+- **Gap (hardening P2):** wire the `discord` tool (or add a metro thread verb) so true threaded replies work. Until then, inline-reply is the only path.
+
 ## Notes
 - Inbound messages arrive as `<channel source="metro" line="…" from="…" station="…" message_id="…">`. Respond by passing `line` verbatim.
 - Inbound attachments surface as a note with an absolute `local_path` — `Read` that path to view.

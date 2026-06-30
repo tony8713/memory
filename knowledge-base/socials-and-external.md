@@ -10,9 +10,9 @@ All via the **Metro** comms daemon — see `accounts-and-stations.md`.
 
 ## External / social tooling
 ### X / Twitter
-- Reachable via **Zapier** (X actions) or the **X API** directly.
-- Use the Zapier flow (`list_enabled_zapier_actions` → discover → enable → execute) when posting/reading on X.
-- **A dedicated "x" MCP exists in `~/.claude.json` config but is UNREACHABLE** (static HTTP `http://127.0.0.1:8000/mcp`, no launcher, nothing on :8000) → the BOOTSTRAP "X auto-like queued @SnapshotLabs tweets" task is BLOCKED. See `knowledge-base/mcp/oauth-gated-and-misc.md`. Use the Zapier/X-API path instead.
+- **X-POSTING IS CURRENTLY UNAVAILABLE (confirmed 2026-06-30).** When Less asked the bot to "tweet something," there was **no live posting path**: the dedicated **"x" MCP is down** (static HTTP `http://127.0.0.1:8000/mcp` in `~/.claude.json`, no launcher, nothing on :8000), and **0 Zapier X actions are enabled** (`list_enabled_zapier_actions` empty), so neither the MCP nor the Zapier route can post as-is.
+- **Enablement paths offered to Less (awaiting his choice):** (1) bring up the `x` MCP (start a listener on :8000); (2) connect X via **Zapier** OAuth (`discover_zapier_actions` → `enable_zapier_action` → execute write); (3) **Typefully** (but it caps 15 posts/month — see below). Until one is chosen, do NOT promise a tweet went out.
+- (Reading/auto-like was always blocked for the same "x" MCP-down reason — the BOOTSTRAP "X auto-like queued @SnapshotLabs tweets" task stays BLOCKED.) See `knowledge-base/mcp/oauth-gated-and-misc.md`.
 
 ### Typefully (content pipeline)
 - Used by **Amalio** for content/marketing. Flow: **JARVIS (approval) → Typefully (intermediate/scheduling) → analytics.**

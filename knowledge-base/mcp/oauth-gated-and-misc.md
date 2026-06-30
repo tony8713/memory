@@ -28,10 +28,14 @@ Endpoint groups (from `list_endpoints`):
 
 > Only obviously-safe Slash call: `GET /tokens/prices` (public, no PII). Everything else is gated behind a legal entity and carries money/PII — don't poke for curiosity.
 
-## "x" MCP — DEFINED BUT UNREACHABLE (not running)
-**Status: configured, NOT running (2026-06-29).** Defined in `~/.claude.json` as a **static HTTP endpoint** `http://127.0.0.1:8000/mcp` with **no launcher** — there is no command to start a server, and **nothing listens on :8000**. So no tools are ever exposed; the server is effectively dead config.
+## `x-cloud` MCP — CONNECTED, READ/BOOKMARK-ONLY (corrected 2026-06-30)
+**Status: LIVE but read-only.** The old dead `x` entry (static HTTP `http://127.0.0.1:8000/mcp`, no launcher, nothing on :8000) has been **REPLACED** by `x-cloud` → **`https://api.x.com/mcp`** (X's official hosted MCP, "xmcp", **bearer-auth** — token NOT recorded here, secret). `claude mcp list` shows it **✔ Connected**; `initialize` + `tools/list` work, exposing **24 tools**.
 
-Consequence: the BOOTSTRAP item *"X MCP just installed → like the queued @SnapshotLabs tweets + add an X auto-like loop step"* is **BLOCKED**. Do not attempt the X auto-like step — the MCP is unreachable. X remains reachable only via **Zapier X actions** (`mcp/zapier.md`) or the X API directly (`socials-and-external.md`). If X tooling is wanted, either stand up a server on :8000 or use the Zapier path.
+**Tools are READ + BOOKMARK only:** `search_posts` / `search_news` / `search_users`, get timelines / mentions / trends, `get_users_me`, and **create/delete bookmarks**. There is **NO `create_post`/tweet tool** — the token's access tier grants read + bookmark, no publish.
+
+**Session caveat:** `x-cloud` tools are NOT loaded in the current loop session (entry added after session start) → needs a **reconnect / `/mcp` refresh** to surface them.
+
+Consequence: **X-POSTING IS STILL UNAVAILABLE** (different reason than before — not "MCP down" but "no publish scope"). The BOOTSTRAP X auto-like step is also not directly serviceable (no like/auto-like tool; only bookmark). To enable posting: a **write-capable X token tier** (exposes create-post on `x-cloud`), **Zapier X write** OAuth (`mcp/zapier.md`), or **Typefully** (15-post/mo cap). See `../socials-and-external.md`.
 
 ## Browserbase (`claude.ai Browserbase`) — tools exposed, but stateful/agentic → not exercised
 Cloud headless-browser automation. Tools: `start` (open/reuse a session), `navigate`, `act` (perform an action on the page), `extract` (pull data via instruction), `observe` (find actionable elements), `end` (close session). `act` mutates page state and `start` consumes a real cloud session — NOT invoked. Use only when a task genuinely needs to drive a browser (e.g. a site with no API); always `end` the session after.

@@ -38,9 +38,9 @@ Two sources of MCP servers, **do not confuse them**:
 | Name | Scope | Transport / target | Live here? | Note |
 |---|---|---|---|---|
 | `metro` | top-level + project `/` | http `mcp.metro.box` (token-in-URL) | **LIVE** | the comms daemon; token NOT recorded (secret) |
-| `x` | top-level | http `127.0.0.1:8000/mcp` | **DEAD** | no launcher, nothing on :8000 → BOOTSTRAP X auto-like BLOCKED (see `oauth-gated-and-misc.md`) |
-| `unreal-mcp` | project `/` | http `127.0.0.1:8000/mcp` | **DEAD** | **same dead endpoint as `x`** — a renamed/repurposed local stub; equally unreachable |
+| `x-cloud` | top-level | http `https://api.x.com/mcp` (bearer-auth) | **LIVE (read-only)** | X's official hosted MCP "xmcp"; `claude mcp list` ✔ Connected, 24 tools. **READ/BOOKMARK-ONLY — no create_post/tweet** (token tier = read+bookmark). Replaces the old dead `x` :8000 entry (2026-06-30). Not loaded in current session (added post-start → needs reconnect). Token NOT recorded (secret). See `oauth-gated-and-misc.md` + `../socials-and-external.md`. |
+| `unreal-mcp` | project `/` | http `127.0.0.1:8000/mcp` | **DEAD** | no launcher, nothing on :8000 — a local stub, unreachable. (The old `x` entry that shared this dead endpoint is gone, replaced by `x-cloud` above.) |
 | `chrome-devtools-mcp` | project `/Users/tony` | stdio `npx chrome-devtools-mcp@latest` | inactive here | only loads when cwd = `/Users/tony`; not in current project scope |
 | `metro-http` | project `/Users/tony/Cursor/bonustrack/metro/metro` | http `mcp.metro.box` (no token) | inactive here | duplicate metro endpoint scoped to the metro repo |
 
-**Takeaway for future ticks:** the only configured-but-unreachable static-HTTP endpoints are `x` and `unreal-mcp`, **both** pointing at the dead local `127.0.0.1:8000/mcp` (no listener) — do **not** chase either. Everything genuinely available comes from the claude.ai connector layer (mapped in this folder) plus `metro`. No new reachable local servers to map.
+**Takeaway for future ticks (updated 2026-06-30):** `unreal-mcp` is the only remaining dead static-HTTP endpoint (`127.0.0.1:8000/mcp`, no listener) — do not chase it. The old dead `x` :8000 entry was **replaced by `x-cloud` (`https://api.x.com/mcp`, bearer-auth) — LIVE but read/bookmark-only, no posting** (see row above + `../socials-and-external.md`). Everything else genuinely available comes from the claude.ai connector layer (mapped in this folder) plus `metro` + `x-cloud`.

@@ -46,4 +46,7 @@ This tick (2026-06-29, post-1830) **completed** the configured-vs-live MCP recon
 
 7. **#general community-support scope (await Less's nod).** A held #general question (knoshua, premium voting strategies) is awaiting Less's go on whether the bot should field community-support questions in #general at all. Do NOT answer in #general until Less confirms the scope.
 
+8. **Grafana MCP re-add (NEW 2026-06-30 1608, pending Less).** wa0x6e asked Less to re-add Grafana to tony's MCP. Not yet in the connector set. Once added, verify read-only access and use it to confirm pineapple-style pod-kill causes (k8s events / node metrics) directly — closes the "k8s events unconfirmed" gap. Track as capability-pending.
+9. **Pineapple k8s-event confirmation (NEW 2026-06-30 1608, low urgency).** The 2026-06-28 22:31 UTC pineapple pod `pineapple-54d65f6684-6ljs4` restart was RCA'd to an infra-level pod kill (no deploy/merge/Sentry), but the exact cause (OOMKilled vs Evicted vs node drain) is unconfirmed — needs cluster event access (kubectl/Grafana, see #8). Single transient blip, service recovered; confirm opportunistically once Grafana is wired.
+
 **Build follow-up (not a regression):** telegram-user **inbound** was never implemented (no MTProto/user train, bot tokens only). Track as a P2 build item.

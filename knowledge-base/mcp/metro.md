@@ -2,8 +2,20 @@
 
 **Server:** `metro` (local comms daemon — Tony/Metro's messaging bridge across XMTP, Discord, Telegram).
 **Purpose:** Send/read messages and manage channels across stations. Every tool takes the `line` attribute verbatim (the station is derived from it). This is the bot account Tony operates through.
-**Caveat:** Daemon is reliability-DEGRADED both directions — inbound DROPS (count-sweeps arrive with gaps) and outbound write verbs hit **300s timeouts** repeatedly. Always READ-BACK; never assume a send landed. A restart is the likely fix. See `skills/metro-comms-reliability.md`.
-**Write-verb timeout semantics:** `send`/`reply`/`react` frequently return a 300s MCP idle-timeout ERROR even though the write **actually SUCCEEDED server-side** (confirmed 2026-06-29: three replies all "timed out" yet a `read` showed all three posted). Treat a timeout as **"unknown, probably delivered" — NOT "failed."** After any write timeout, FIRST `read` the channel to check whether it landed; do NOT blindly retry or you double/triple-post (spam).
+## Transport architecture + the stream-wedge fix (2026-06-30) — SUPERSEDES the old "read-verb degradation" notes
+The recurring **`read` 300s timeouts / zombie SSE stream / post-deploy MCP flakiness** were a **server bug, now FIXED at the source** (NOT a passive "restart / `/mcp` reconnect" workaround anymore).
+
+- **File:** `apps/mcp/src/mcp/index.ts` (metro-protocol).
+- **Old (broken) design:** a **single GLOBAL** `StreamableHTTPServerTransport` that **`rebind()`'d** (close + mint a new session id) on **every** session-id mismatch. Failure modes:
+  1. Rebind tore down **in-flight reads** → the 300s `read` hangs.
+  2. Rebind **orphaned the inbound SSE stream** (zombie stream).
+  3. With a **2nd concurrent client**, the two clients entered **permanent mutual-rebind thrash** (each request stole/closed the other's transport).
+  4. A **deploy bounce** (e.g. 18:33Z) kicked off the reconnect storm that wedged the orchestrator's stream.
+- **New (fixed) design — commit `04f6b6f`:** **per-session transports** — `Map<sessionId, {server, transport}>`. Create a transport **only on `initialize`**; route every later request by `mcp-session-id`; return **404** on an unknown/stale id and **never close or steal a live transport**. Removed the `rebind` / `syncSession` / `_webStandardTransport` hack. Inbound relay + 25s keepalive **broadcast per-session**. Verified: build clean, **137 tests pass**, deployed to Fly app `metro`, live-checked (per-session works; bogus id → 404 without disturbing the live session; no rebind churn; reads return instantly).
+- **Companion mitigation:** the local `box.metro.dispatcher` daemon was **RETIRED** (`launchctl bootout`) so there is **one client per inbox** — removing the multi-client trigger for thrash #3.
+- **Caveat (deploy-drift, open):** `04f6b6f` + `2f9a5fa` (the latter also carries the `packages/xmtp` raw-privateKey loader patch) are on **LOCAL main only, NOT pushed to origin** (branch behind origin via unrelated telegram-user commits). Cloud runs the fix (deploys from working tree); origin still needs reconcile + push.
+
+**Write-verb timeout semantics (still applies):** even with the fix, treat any `send`/`reply`/`react` MCP idle-timeout ERROR as **"unknown, probably delivered" — NOT "failed."** After a write timeout, FIRST `read` the channel to confirm it landed; do NOT blindly retry or you double/triple-post (spam). Confirmed 2026-06-29: three replies all "timed out" yet a `read` showed all three posted. See `skills/metro-comms-reliability.md`.
 
 ## Real captured context (`mcp__metro__list_accounts`, 2026-06-27)
 Accounts (PUBLIC identity only — no tokens/keys/mnemonic ever returned):

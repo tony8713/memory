@@ -55,5 +55,6 @@ This tick (2026-06-29, post-1830) **completed** the configured-vs-live MCP recon
 - **C. Discord raid outcome.** User `1520075759685734462` mass-image-spammed 10+ channels; flagged to Less, recommended ban+bulk-delete, awaiting auth. Follow up on whether Less authorized + the moderation was executed. Loop stays read-only; this is a human-authorized action.
 - **D. sx#2143** is approved (chai3-bot) — watch for merge.
 - New skill: `skills/sx-address-normalization-checksum.md` (don't normalize at sequencer; ENS catch-narrowing pattern).
+- **E. sx-monorepo PR #2197 (NEW 2026-07-01 ~12:00).** DRAFT opened (branch `fix/checkpoint-box-url` off master) replacing `https://checkpoint.box` → `https://checkpoint.snapshot.box` — docs/README only (4 files: README.md, docs/snapshot-x/services/api.mdx, apps/api/README.md, apps/delegates-api/README.md), no code, after-grep clean (negative-lookbehind to avoid double-replace), NO resync (confirmed to Less in #api). **Watch #2197 for review/merge** AND **await Less's confirm** on whether the `docs.checkpoint.box` → `docs.checkpoint.snapshot.box` subdomain change should also be added. See reports/2026-07-01-1200.md.
 
 **Build follow-up (not a regression):** telegram-user **inbound** was never implemented (no MTProto/user train, bot tokens only). Track as a P2 build item.
